@@ -1,1 +1,66 @@
-<h1>Samba</h1>
+<div class="container">
+    
+    <h1>Samba</h1>
+
+    <%= form_with(url: "/search", method: "get", local: true) do |f| %>
+
+        <%= f.label :departure, "Ville de départ" %>
+        <%= f.text_field :departure %>
+
+    <br>
+
+        <%= f.label :start_date, "Date de départ" %>
+        <%= f.date_field :start_date %>
+
+    <br>
+
+        <%= f.radio_button :nights, 2 %>
+        <%= f.label :nights_two, "2 nuits" %>
+        <%= f.radio_button :nights, 4 %>
+        <%= f.label :nights_four, "4 nuits" %>
+        <%= f.radio_button :nights, 6 %>
+        <%= f.label :nights_six, "6 nuits" %>
+
+    <br>
+
+        <%= f.radio_button :place, "confort" %>
+        <%= f.label :place_confort, "Hébergement confort" %>
+        <%= f.radio_button :place, "authentique" %>
+        <%= f.label :place_authentique, "Hébergement authentique" %>
+        <%= f.radio_button :place, "nature" %>
+        <%= f.label :place_nature, "Bivouac nature" %>
+
+    <br>
+
+        <%= f.radio_button :rythm, "relax" %>
+        <%= f.label :rythm_relax, "Rythme relax" %>
+        <%= f.radio_button :rythm, "moyen" %>
+        <%= f.label :rythm_moyen, "Rythme moyen" %>
+        <%= f.radio_button :rythm, "intense" %>
+        <%= f.label :rythm_intense, "Rythme intense" %>
+
+    <br>
+
+        <%= f.radio_button :passengers, "1-2" %>
+        <%= f.label :passengers_one_two, "1-2 pers." %>
+        <%= f.radio_button :passengers, "3-4" %>
+        <%= f.label :passengers_three_four, "3-4 pers." %>
+        <%= f.radio_button :passengers, "5-6" %>
+        <%= f.label :passengers_five_six, "5-6 pers." %>
+    
+     <br>
+
+        <%= f.radio_button :van_type, "vintage" %>
+        <%= f.label :van_type_vintage, "Véhicule vintage" %>
+        <%= f.radio_button :van_type, "moderne" %>
+        <%= f.label :van_type_moderne, "Véhicule moderne" %>
+        <%= f.radio_button :van_type, "luxe" %>
+        <%= f.label :van_type_luxe, "Véhicule luxe" %>
+
+     <br>
+
+        <%= f.submit %>
+
+    <% end %>
+
+</div>
