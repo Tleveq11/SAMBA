@@ -1,4 +1,5 @@
 class Booking < ApplicationRecord
+
   belongs_to :user
   belongs_to :van
 
@@ -7,4 +8,7 @@ class Booking < ApplicationRecord
 
   has_many :booking_places
   has_many :places, through: :booking_places
+
+  validates :start_date, :end_date, :total_price, presence: true
+
 end
