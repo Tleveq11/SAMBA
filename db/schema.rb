@@ -10,10 +10,58 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_16_100437) do
+ActiveRecord::Schema.define(version: 2021_03_16_135957) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "category"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "booking_activities", force: :cascade do |t|
+    t.bigint "activity_id", null: false
+    t.bigint "booking_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["activity_id"], name: "index_booking_activities_on_activity_id"
+    t.index ["booking_id"], name: "index_booking_activities_on_booking_id"
+  end
+
+  create_table "booking_places", force: :cascade do |t|
+    t.bigint "place_id", null: false
+    t.bigint "booking_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["booking_id"], name: "index_booking_places_on_booking_id"
+    t.index ["place_id"], name: "index_booking_places_on_place_id"
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "total_price"
+    t.bigint "user_id", null: false
+    t.bigint "van_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+    t.index ["van_id"], name: "index_bookings_on_van_id"
+  end
+
+  create_table "places", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "sleeping_type"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +75,19 @@ ActiveRecord::Schema.define(version: 2021_03_16_100437) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "vans", force: :cascade do |t|
+    t.string "name"
+    t.string "van_type"
+    t.integer "passengers"
+    t.integer "price_per_night"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "booking_activities", "activities"
+  add_foreign_key "booking_activities", "bookings"
+  add_foreign_key "booking_places", "bookings"
+  add_foreign_key "booking_places", "places"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "bookings", "vans"
 end
