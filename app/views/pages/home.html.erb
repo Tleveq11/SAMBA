@@ -3,7 +3,7 @@
     
     <h1>Samba</h1>
 
-    <%= form_with(url: "/", method: "get", local: true) do |f| %>
+    <%= form_with(url: "/results", method: "get", local: true) do |f| %>
 
         <%= f.label :departure, "Ville de départ" %>
         <%= f.text_field :departure %>
@@ -42,11 +42,11 @@
 
     <br>
 
-        <%= f.radio_button :passengers, "1-2" %>
+        <%= f.radio_button :passengers, "2" %>
         <%= f.label :passengers_one_two, "1-2 pers." %>
-        <%= f.radio_button :passengers, "3-4" %>
+        <%= f.radio_button :passengers, "4" %>
         <%= f.label :passengers_three_four, "3-4 pers." %>
-        <%= f.radio_button :passengers, "5-6" %>
+        <%= f.radio_button :passengers, "6" %>
         <%= f.label :passengers_five_six, "5-6 pers." %>
     
      <br>
