@@ -17,6 +17,9 @@ end
 
 def search
   @departure = params[:departure]
+  result = Geocoder.search(params[:departure]).first.coordinates
+  @departure_lat = result[0].to_s
+  @departure_long = result[1].to_s
   @start_date = params[:start_date]
   @nights = params[:nights]
   @place = params[:place]
