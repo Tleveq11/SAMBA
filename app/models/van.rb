@@ -7,7 +7,7 @@ class Van < ApplicationRecord
   validates :name, :passengers, :van_type, :price_per_night, presence: true
 
   def self.find_from_criteria(passengers, van_type)
-    all.find(passa)
+    all.where(passengers: passengers, van_type: van_type).first
   end
 
 end

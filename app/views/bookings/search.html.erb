@@ -1,0 +1,16 @@
+<div class="container">
+
+    <h2>Mon véhicule</h2>
+
+    <%# afficher la photo %>
+    <div class="container-sm">
+        <%= cl_image_tag @van.photo.key %>
+    </div>
+
+    <p><%= @van.price_per_night * @nights .to_i %>€ pour <%= @nights %>nuits</p>
+
+    <p><%= @van.name %></p>
+    <p>Capacité: <%= @van.passengers %> personnes</p>
+    <p><%= @van.description %></p>
+
+</div>

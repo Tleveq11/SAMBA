@@ -2,12 +2,6 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
-    
-
-
-
-
-
     # required = [:departure, :start_date, :nights, :place, :rythm, :passengers, :van_type]
     # form_complete = true
     # required.each do |f|
