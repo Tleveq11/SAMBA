@@ -1,0 +1,26 @@
+.radio {
+    position: absolute;
+    transform: scale(0);
+}
+
+.radio-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.radio-option {
+    text-align: center;
+    flex-basis: 30%;
+}
+
+
+label > img {
+    height: 60px;
+    filter: grayscale(1);
+}
+
+label:checked > img {
+    filter: none;
+}
+
+
