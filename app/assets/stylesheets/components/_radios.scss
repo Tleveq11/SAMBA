@@ -1,7 +1,7 @@
-.radio {
-    position: absolute;
-    transform: scale(0);
-}
+// .radio {
+//     position: absolute;
+//     transform: scale(0);
+// }
 
 .radio-group {
     display: flex;
@@ -19,8 +19,9 @@ label > img {
     filter: grayscale(1);
 }
 
-label:checked > img {
+input[type=checkbox]:checked + label {
     filter: none;
+    color: red;
 }
 
 
