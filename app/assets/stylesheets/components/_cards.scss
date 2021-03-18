@@ -1,0 +1,41 @@
+// card van
+
+.card-van {
+    width: 100%;
+    position: relative;
+}
+
+.card-van-img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.van-card-name {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0;
+}
+
+.van-card-passengers {
+    font-size: 14px;
+}
+
+.van-card-description {
+    font-size: 16px;
+}
+
+.van-card-price {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    background-color: #fff;
+    border-radius: 100px;
+    padding: 4px 12px;
+}
+
+.van-card-price > p {
+    margin: 0;
+    font-size: 14px;
+}
+

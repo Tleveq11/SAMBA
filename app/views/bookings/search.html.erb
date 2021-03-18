@@ -1,5 +1,6 @@
-<div class="container">
+<h2 class="subtitle-green">Mon véhicule</h2>
 
+<<<<<<< HEAD
 <%# Affichage du van sélectionné %>
 
     <h2>Mon véhicule</h2>
@@ -11,6 +12,21 @@
     <p><%= @van.name %></p>
     <p>Capacité: <%= @van.passengers %> personnes</p>
     <p><%= @van.description %></p>
+=======
+<div class="card-van">
+    <div>
+        <%= cl_image_tag @van.photo.key, class: "card-van-img" %>
+    </div>
+
+    <div class="van-card-price">
+        <p><strong><%= @van.price_per_night * @nights .to_i %>€</strong> pour <%= @nights %> nuits</p>
+    </div>
+
+    <p class="van-card-name"><%= @van.name %></p>
+    <p class="van-card-passengers">Capacité: <%= @van.passengers %> personnes</p>
+    <p class="van-card-description"><%= @van.description %></p>
+</div>
+>>>>>>> master
 
 <%# Affichage de la carte %>
 
@@ -23,9 +39,12 @@
         data-lat= "<%= @departure_lat%>"
         data-long="<%= @departure_long%>"> </div>
 
+<<<<<<< HEAD
 <%# Affichage de la liste (vide au départ) de sélection %>
 
 <%# Affichage des suggestions d'emplacements %>
     <br>
     <p><%= @place %></p>
 </div>
+=======
+>>>>>>> master
