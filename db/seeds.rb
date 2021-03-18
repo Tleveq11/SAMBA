@@ -185,6 +185,7 @@ place13 = Place.new(name: "Aire de repos Cassis", address:"Chemin du Passage d'O
 place13.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
 file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1615995756/repos_khyxh7.jpg')
+
 place14 = Place.new(name: "Air de repos 511", address:"511 Route des Quatre Chemins 83690 Salernes", sleeping_type:"nature", description:"Endroit calme, au bord de la rivière, avec équipements gratuit : vidange eaux noires, eaux grises et remplissage d’eau. L'air de repos est agréable et proche de la route à emprunter pour accéder à la cascade de Sillans.")
 place14.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
