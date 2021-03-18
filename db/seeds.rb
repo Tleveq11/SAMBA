@@ -30,7 +30,7 @@ vans = [
     description:"Replongez dans les années 70 avec ce modèle L300 Sportpac, aménagé pour un confort à 2 personnes. Vous apprécierez ses vitres tintées qui vous permettrons de profiter des paysages tout en respectant votre intimité depuis l'extèrieur. Lit 2 places, rangements, kitchenette, et douchette à placer à l'extèrieur.",
     price_per_night: 62,
     file: 'https://res.cloudinary.com/dskkiywgj/image/upload/v1615970962/Van1_thug49.jpg'
-  }
+  },
 
   {
     van_type: "vintage",
@@ -39,7 +39,7 @@ vans = [
     description:"Evadez-vous à bord d'un mythique combi T2 qui a été entièrement modelé pour un confort de voyage pour 4 personnes, avec son toît dépliable qui permet d'avoir deux couchages supplémentaires. 2 lits de 2 places, rangements, kitchenette, et douchette à placer à l'exterieur.",
     price_per_night: 95,
     file: 'https://res.cloudinary.com/dskkiywgj/image/upload/v1615970962/Van2_kosuwi.jpg'
-  }
+  },
 
   {
     van_type: "vintage",
@@ -48,7 +48,7 @@ vans = [
     description:"Edition limitée - Vivez une experience innoubliable dans cet ancien combi des années 80, totalement remmodelé sur-mesure pour un voyage à 6 personnes avec de l'espace. 6 places assises pour les déplacements. 6 couchages, rangements, kitchenette, toilettes et douchettes à l'intérieur.",
     price_per_night: 240,
     file: 'https://res.cloudinary.com/dskkiywgj/image/upload/v1615970962/Van3_emmzp3.jpg'
-  }
+  },
 
   {
     van_type: "moderne",
@@ -57,7 +57,7 @@ vans = [
     description:"A la pointe de la modernité, le VW T5 California vous accompagnera dans votre voyage de courte ou longue durée avec 2 sièges seulement qui nous ont permis de libérer de l'espace à l'arrière pour intégrer une vraie kitchenette, un frigo, un couchage 2 places. Climatisation de cabine, toilettes portatives et douche extérieure.",
     price_per_night: 150,
     file: 'https://res.cloudinary.com/dskkiywgj/image/upload/v1615970962/Van4_wr5ypz.jpg'
-  }
+  },
 
   {
     van_type: "moderne",
@@ -66,7 +66,7 @@ vans = [
     description:"Le VW Transporte T5 vous apportera un grand confort pour un voyage à 4 grâce à son toît dépliable qui vous permet de rester debout à l'intèrieur et de vous garantir 2 couchages supplémentaires. Kitchenette, un frigo, climatisation de cabine, toilettes portatives et douche extérieure.",
     price_per_night: 200,
     file: 'https://res.cloudinary.com/dskkiywgj/image/upload/v1615970962/Van5_yygqw6.jpg'
-  }
+  },
 
   {
     van_type: "moderne",
@@ -75,7 +75,7 @@ vans = [
     description:"Le VW Transporter T6 vous apportera un grand confort pour un voyage à 6 grâce à son toît dépliable qui vous permet de rester debout à l'interieur et de vous garantir 2 couchages supplémentaires en haut. 2 couchages en bas. Kitchenette, un frigo, climatisation de cabine, toilettes portatives et douche extérieure.",
     price_per_night: 240,
     file: 'https://res.cloudinary.com/dskkiywgj/image/upload/v1615970962/Van6_dbntf1.jpg'
-  }
+  },
 
   {
     van_type: "luxe",
@@ -84,7 +84,7 @@ vans = [
     description:"Un compagnon de vacances qui facilitera votre quotidien avec un intérieur qui vous apportera toutes les dernières fonctionnalités tendances. Télévision, kitchenette, un frigo, un congélateur, climatisation de cabine, toilettes portatives et douche extérieure.",
     price_per_night: 220,
     file: 'https://res.cloudinary.com/dskkiywgj/image/upload/v1615970963/Van7_glljzq.jpg'
-  }
+  },
 
   {
     van_type: "luxe",
@@ -93,7 +93,7 @@ vans = [
     description:"Libérez-vous et partez à l'aventure dans le nouveau modèle spécial ArtVenture. La Marco Polo facilitera votre quotidien grâce à son toît dépliable qui donne accès à un lit 2 places spacieux. L'intérieur du véhicule vous apportera toutes les dernières fonctionnalités tendances. Télévision, kitchenette, un frigo, un congélateur, climatisation de cabine, toilettes portatives et douche extérieure.",
     price_per_night: 280,
     file: 'https://res.cloudinary.com/dskkiywgj/image/upload/v1615970963/Van8_ef02lk.jpg'
-  }
+  },
 
   {
     van_type: "luxe",
@@ -103,7 +103,6 @@ vans = [
     price_per_night: 480,
     file: 'https://res.cloudinary.com/dskkiywgj/image/upload/v1615970963/Van9_tfc7pc.jpg'
   }
-
 ]
 
 Van.destroy_all
@@ -129,7 +128,7 @@ file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1615989555/P
 place1 = Place.new(name: "Camping de Cassis Les Cigales **", address:"43 Avenue de la Marne 13260 Cassis", sleeping_type:"confort", description:"Camping situé dans les hauteurs de Cassis à 20min à pied du centre ville et à 1h des calanques. Vous pourrez profitez des sanitaires et douches, très propres, de la piscine et d'emplacements privilégiés où poser votre van avec une vue mer.")
 place1.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
-file = URI.open('')
+file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1615989555/Place1_udwxxf.png')
 place19 = Place.new(name: "Camping du Garlaban", address:"1914 Chemin de la Thuilière, 13400 Aubagne", sleeping_type:"confort", description:"L​e Camping est idéalement situé pour visiter la Provence à votre rythme. Partez à la découverte de Marseille, du Parc National des Calanques ou du massif du Garlaban. Découvrez également les authentiques villes et villages provençaux situés aux alentours: Aubagne, Cassis, La Ciotat et les fameux villages de Pagnol à Marseille.")
 place19.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
