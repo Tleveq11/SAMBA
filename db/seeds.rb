@@ -37,7 +37,7 @@ vans = [
     name: "1976 Volkswagen T2B",
     passengers: 4,
     description:"Evadez-vous à bord d'un mythique combi T2 qui a été entièrement modelé pour un confort de voyage pour 4 personnes, avec son toît dépliable qui permet d'avoir deux couchages supplémentaires. 2 lits de 2 places, rangements, kitchenette, et douchette à placer à l'exterieur.",
-    price_per_night: 95
+    price_per_night: 95,
     file: 'https://res.cloudinary.com/dskkiywgj/image/upload/v1615970962/Van2_kosuwi.jpg'
   }
 
@@ -46,7 +46,7 @@ vans = [
     name: "1981 Volkswagen Transporter T1",
     passengers: 6,
     description:"Edition limitée - Vivez une experience innoubliable dans cet ancien combi des années 80, totalement remmodelé sur-mesure pour un voyage à 6 personnes avec de l'espace. 6 places assises pour les déplacements. 6 couchages, rangements, kitchenette, toilettes et douchettes à l'intérieur.",
-    price_per_night: 240
+    price_per_night: 240,
     file: 'https://res.cloudinary.com/dskkiywgj/image/upload/v1615970962/Van3_emmzp3.jpg'
   }
 
@@ -55,7 +55,7 @@ vans = [
     name: "2018 Volkswagen California T5",
     passengers: 2,
     description:"A la pointe de la modernité, le VW T5 California vous accompagnera dans votre voyage de courte ou longue durée avec 2 sièges seulement qui nous ont permis de libérer de l'espace à l'arrière pour intégrer une vraie kitchenette, un frigo, un couchage 2 places. Climatisation de cabine, toilettes portatives et douche extérieure.",
-    price_per_night: 150
+    price_per_night: 150,
     file: 'https://res.cloudinary.com/dskkiywgj/image/upload/v1615970962/Van4_wr5ypz.jpg'
   }
 
@@ -64,7 +64,7 @@ vans = [
     name: "2018 Volkswagen Transporter T5",
     passengers: 4,
     description:"Le VW Transporte T5 vous apportera un grand confort pour un voyage à 4 grâce à son toît dépliable qui vous permet de rester debout à l'intèrieur et de vous garantir 2 couchages supplémentaires. Kitchenette, un frigo, climatisation de cabine, toilettes portatives et douche extérieure.",
-    price_per_night: 200
+    price_per_night: 200,
     file: 'https://res.cloudinary.com/dskkiywgj/image/upload/v1615970962/Van5_yygqw6.jpg'
   }
 
@@ -73,7 +73,7 @@ vans = [
     name: "2019 Volkswagen Transporter T6",
     passengers: 6,
     description:"Le VW Transporter T6 vous apportera un grand confort pour un voyage à 6 grâce à son toît dépliable qui vous permet de rester debout à l'interieur et de vous garantir 2 couchages supplémentaires en haut. 2 couchages en bas. Kitchenette, un frigo, climatisation de cabine, toilettes portatives et douche extérieure.",
-    price_per_night: 240
+    price_per_night: 240,
     file: 'https://res.cloudinary.com/dskkiywgj/image/upload/v1615970962/Van6_dbntf1.jpg'
   }
 
@@ -82,7 +82,7 @@ vans = [
     name: "2019 Mercedes-Benz Marco Polo",
     passengers: 2,
     description:"Un compagnon de vacances qui facilitera votre quotidien avec un intérieur qui vous apportera toutes les dernières fonctionnalités tendances. Télévision, kitchenette, un frigo, un congélateur, climatisation de cabine, toilettes portatives et douche extérieure.",
-    price_per_night: 220
+    price_per_night: 220,
     file: 'https://res.cloudinary.com/dskkiywgj/image/upload/v1615970963/Van7_glljzq.jpg'
   }
 
@@ -91,7 +91,7 @@ vans = [
     name: "2020 Mercedes-Benz Marco Polo HORIZON",
     passengers: 4,
     description:"Libérez-vous et partez à l'aventure dans le nouveau modèle spécial ArtVenture. La Marco Polo facilitera votre quotidien grâce à son toît dépliable qui donne accès à un lit 2 places spacieux. L'intérieur du véhicule vous apportera toutes les dernières fonctionnalités tendances. Télévision, kitchenette, un frigo, un congélateur, climatisation de cabine, toilettes portatives et douche extérieure.",
-    price_per_night: 280
+    price_per_night: 280,
     file: 'https://res.cloudinary.com/dskkiywgj/image/upload/v1615970963/Van8_ef02lk.jpg'
   }
 
@@ -100,7 +100,7 @@ vans = [
     name: "1982 Combi Volkswagen California",
     passengers: 6,
     description:"Edition limitée - Grâce à notre petite pépite, vous vivrez une experience innoubliable dans cet ancien combi des années 80, totalement imaginé pour un voyage à 6 personnes avec de l'espace pour voyager confortablement. 6 places assises pour les déplacements. 6 couchages, télévision, rangements, kitchenette, toilettes et douchettes à l'intérieur.",
-    price_per_night: 480
+    price_per_night: 480,
     file: 'https://res.cloudinary.com/dskkiywgj/image/upload/v1615970963/Van9_tfc7pc.jpg'
   }
 
