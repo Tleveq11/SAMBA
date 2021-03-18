@@ -112,11 +112,11 @@ Place13 = Place.new(name: "Aire de repos Cassis", address:"Chemin du Passage d'O
 Place13.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
 file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1615995756/repos_khyxh7.jpg')
-Place14 = Place.new(name: "Air de repos 511", address:"511 Route des Quatre Chemins 83690 Salernes", sleeping_type:"nature", description:"Endroit calme, au bord de la rivière, avec équipements gratuit : vidange eaux noires, eaux grises et remplissage d’eau. L'air de repos est agréable et proche de la route à emprunter pour accéder à la cascade de Sillans.")
+Place14 = Place.new(name: "Aire de repos 511", address:"511 Route des Quatre Chemins 83690 Salernes", sleeping_type:"nature", description:"Endroit calme, au bord de la rivière, avec équipements gratuit : vidange eaux noires, eaux grises et remplissage d’eau. L'air de repos est agréable et proche de la route à emprunter pour accéder à la cascade de Sillans.")
 Place14.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
 file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1615999084/leclosdaubert_hmbr66.jpg')
-Place15 = Place.new(name: "Air de stationnement Le Clos d'Aubert", address:"Le Clos d'Aubert 04180 Villeneuve", sleeping_type:"nature", description:"Au coeur du village, très calme. Aire de service gratuite avec possibilité de parking la nuit, accès par le chemin des Oliviers, 5 emplacements maximum 48h.")
+Place15 = Place.new(name: "Aire de stationnement Le Clos d'Aubert", address:"Le Clos d'Aubert 04180 Villeneuve", sleeping_type:"nature", description:"Au coeur du village, très calme. Aire de service gratuite avec possibilité de parking la nuit, accès par le chemin des Oliviers, 5 emplacements maximum 48h.")
 Place15.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
 file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1615999526/montventoux_vzevrb.jpg')
@@ -128,7 +128,7 @@ Place17 = Place.new(name: "Aire de stationnement Route d'Aramon", address:"Route
 Place17.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
 file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1616001823/martigues_grvcag.jpg')
-Place18 = Place.new(name: "Air de stationnement Saint-Martin-de-Crau", address:"Place François Mitterrand 13310 Saint-Martin-de-Crau", sleeping_type:"nature", description:"Petit parc ombragé, table de pique-nique, à proximité du village. Borne Euro Relais 2 €, endroit sympa")
+Place18 = Place.new(name: "Aire de stationnement Saint-Martin-de-Crau", address:"Place François Mitterrand 13310 Saint-Martin-de-Crau", sleeping_type:"nature", description:"Petit parc ombragé, table de pique-nique, à proximité du village. Borne Euro Relais 2 €, endroit sympa")
 Place18.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
 [Place1, Place2, Place3, Place4, Place5, Place6, Place7, Place8, Place9, Place10, Place11, Place12, Place13, Place14, Place15, Place16, Place17, Place18].each do |place_instance|

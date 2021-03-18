@@ -1,20 +1,5 @@
 class BookingsController < ApplicationController
 
-def new
-  @booking = Booking.new
-
-end
-
-def create
-
-end
-
-def show
-
-
-end
-
-
 def search
   @departure = params[:departure]
   result = Geocoder.search(params[:departure]).first.coordinates
@@ -22,32 +7,34 @@ def search
   @departure_long = result[1].to_s
   @start_date = params[:start_date]
   @nights = params[:nights]
-  @place = params[:place]
+  @sleeping_type = params[:place]
   @rythm = params[:rythm]
   @passengers = params[:passengers]
   @van_type = params[:van_type]
 
   # récupérer le van en fonction de passengers et van type
-  @van = Van.find_from_criteria(@passengers, @van_type)
-
-  # redirect_to results_path
+  @van = Van.find_van_from_criteria(@passengers, @van_type)
 
   #affichage mapbox
-  @places = Place.all
-    # the `geocoded` scope filters only flats with coordinates (latitude & longitude
-  @markers = @places.geocoded.map do |place|
-    {
-      lat: place.latitude,
-      lng: place.longitude
-    }
-  end
+  # @places = Place.all
+  #   # the `geocoded` scope filters only flats with coordinates (latitude & longitude)
+  # @markers = @places.geocoded.map do |place|
+  #   {
+  #     lat: place.latitude,
+  #     lng: place.longitude
+  #   }
+  # end
+
+  # récupérer les places en fonction du sleeping type
+  @place = Place.find_place_from_criteria(@sleeping_type)
+  
 
 end
 
-private
+# private
 
-  def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :total_price)
-  end
+#   def booking_params
+#     params.require(:booking).permit(:start_date, :end_date, :total_price)
+#   end
 
 end

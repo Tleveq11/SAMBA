@@ -1,25 +1,31 @@
 <div class="container">
 
+<%# Affichage du van sélectionné %>
+
     <h2>Mon véhicule</h2>
 
-    <%# afficher la photo %>
     <div class="container-sm">
         <%= cl_image_tag @van.photo.key %>
     </div>
-
     <p><%= @van.price_per_night * @nights .to_i %>€ pour <%= @nights %>nuits</p>
-
     <p><%= @van.name %></p>
     <p>Capacité: <%= @van.passengers %> personnes</p>
     <p><%= @van.description %></p>
 
+<%# Affichage de la carte %>
 
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-     data-lat= "<%= @departure_lat%>"
-     data-long="<%= @departure_long%>"> </div>
+    <h2>Mes emplacements</h2>
 
+    <div id="map"
+        style="width: 100%; height: 600px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+        data-lat= "<%= @departure_lat%>"
+        data-long="<%= @departure_long%>"> </div>
 
+<%# Affichage de la liste (vide au départ) de sélection %>
+
+<%# Affichage des suggestions d'emplacements %>
+    <br>
+    <p><%= @place %></p>
 </div>
