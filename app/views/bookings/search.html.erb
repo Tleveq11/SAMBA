@@ -1,25 +1,40 @@
-<div class="container">
+<h2 class="subtitle-green">Mon véhicule</h2>
 
-    <h2>Mon véhicule</h2>
+<%# affichage du van sélectionné %>
 
-    <%# afficher la photo %>
-    <div class="container-sm">
-        <%= cl_image_tag @van.photo.key %>
+<div class="card-van">
+    <div>
+        <%= cl_image_tag @van.photo.key, class: "card-van-img" %>
     </div>
 
-    <p><%= @van.price_per_night * @nights .to_i %>€ pour <%= @nights %>nuits</p>
+    <div class="van-card-price">
+        <p><strong><%= @van.price_per_night * @nights.to_i %>€</strong> pour <%= @nights %> nuits</p>
+    </div>
 
-    <p><%= @van.name %></p>
-    <p>Capacité: <%= @van.passengers %> personnes</p>
-    <p><%= @van.description %></p>
+    <p class="van-card-name"><%= @van.name %></p>
+    <p class="van-card-passengers">Capacité: <%= @van.passengers %> personnes</p>
+    <p class="van-card-description"><%= @van.description %></p>
+</div>
 
+<%# Affichage de la carte %>
 
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-     data-lat= "<%= @departure_lat%>"
-     data-long="<%= @departure_long%>"> </div>
+    <h2>Mes emplacements</h2>
 
+    <div id="map"
+        style="width: 100%; height: 600px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+        data-lat= "<%= @departure_lat%>"
+        data-long="<%= @departure_long%>"> </div>
+
+<%# Affichage de la liste (vide au départ) de sélection %>
+
+<%# Affichage des suggestions d'emplacements %>
+    <br>
+    <% @places_selection.each do |place| %>
+        <%= cl_image_tag place.photo.key %>
+        <%= place.name %>
+        <%= place.address %>
+    <% end %>
 
 </div>
