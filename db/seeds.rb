@@ -125,10 +125,10 @@ end
 
 puts "Creating places..."
 file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1615989555/Place1_udwxxf.png')
-place1 = Place.new(name: "Camping de Cassis Les Cigales **", address:"43 Avenue de la Marne 13260 Cassis", sleeping_type:"confort", description:"Camping situé dans les hauteurs de Cassis à 20min à pied du centre ville et à 1h des calanques. Vous pourrez profitez des sanitaires et douches, très propres, de la piscine et d'emplacements privilégiés où poser votre van avec une vue mer.")
+place1 = Place.new(name: "Camping de Cassis Les Cigales", address:"43 Avenue de la Marne 13260 Cassis", sleeping_type:"confort", description:"Camping situé dans les hauteurs de Cassis à 20min à pied du centre ville et à 1h des calanques. Vous pourrez profitez des sanitaires et douches, très propres, de la piscine et d'emplacements privilégiés où poser votre van avec une vue mer.")
 place1.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
-file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1615989555/Place1_udwxxf.png')
+file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1616079958/camping-du-garlaban_qq3h8s.jpg')
 place19 = Place.new(name: "Camping du Garlaban", address:"1914 Chemin de la Thuilière, 13400 Aubagne", sleeping_type:"confort", description:"L​e Camping est idéalement situé pour visiter la Provence à votre rythme. Partez à la découverte de Marseille, du Parc National des Calanques ou du massif du Garlaban. Découvrez également les authentiques villes et villages provençaux situés aux alentours: Aubagne, Cassis, La Ciotat et les fameux villages de Pagnol à Marseille.")
 place19.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
@@ -141,7 +141,7 @@ place2 = Place.new(name: "Camping Les Pouverels", address:"3070 Les Pouverels 83
 place2.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
 file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1615989555/Place3_yqyqdj.jpg')
-place3 = Place.new(name: "Camping Provence Vallée ***", address:"1124-1150 Avenue de la Repasse 04100 Manosque", sleeping_type:"confort", description:"Camping avec piscine et aire de jeux, bien ombragé au calme à proximité de la ville. Très bon accueil et chaleureux, Charlene et Clément sont adorables et disponibles, grands emplacements pour les camping-cars, séparés par des haies et ombragés.")
+place3 = Place.new(name: "Camping Provence Vallée", address:"1124 Avenue de la Repasse 04100 Manosque", sleeping_type:"confort", description:"Camping avec piscine et aire de jeux, bien ombragé au calme à proximité de la ville. Très bon accueil et chaleureux, Charlene et Clément sont adorables et disponibles, grands emplacements pour les camping-cars, séparés par des haies et ombragés.")
 place3.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
 file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1615989555/Place4_v7osjo.jpg')
@@ -149,11 +149,11 @@ place4 = Place.new(name: "Camping La sorguette", address:"Chemin de la Petite Is
 place4.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
 file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1615989555/Place5_wy8qnx.jpg')
-place5 = Place.new(name: "Camping Fontvieille ***", address:"114 Rue Michelet 13990 Fontvieille", sleeping_type:"confort", description:"Personnel, chaleureux et accueillant, vous conseille pour les idées de sorties. Accès au village par un sentier derrière le camping. Camping très propre, bien entretenu.")
+place5 = Place.new(name: "Camping Fontvieille", address:"114 Rue Michelet 13990 Fontvieille", sleeping_type:"confort", description:"Personnel, chaleureux et accueillant, vous conseille pour les idées de sorties. Accès au village par un sentier derrière le camping. Camping très propre, bien entretenu.")
 place5.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
 file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1615990627/camping6_g8pgs0.jpg')
-place6 = Place.new(name: "Camping Municipal Bottaïe ***", address:"30 Avenue Frédéric Mistral, 13110 Port-de-Bouc", sleeping_type:"confort", description:"Le Bottai est classé 3 étoiles. Camping familial de 80 emplacements avec des hébergements se situant à 10 m d'une petite plage. Piscine avec tobbogans, animations le soir, plage privative, emplacments spacieux.")
+place6 = Place.new(name: "Camping Municipal Bottaïe", address:"30 Avenue Frédéric Mistral, 13110 Port-de-Bouc", sleeping_type:"confort", description:"Le Bottai est classé 3 étoiles. Camping familial de 80 emplacements avec des hébergements se situant à 10 m d'une petite plage. Piscine avec tobbogans, animations le soir, plage privative, emplacments spacieux.")
 place6.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
 file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1615995045/chezgg_pkc8ds.jpg')
@@ -161,7 +161,7 @@ place7 = Place.new(name: "Chez Annette & Gérard", address:"4 Avenue de la Marne
 place7.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
 file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1615992255/chezlaurent_ckrmtn.jpg')
-place8 = Place.new(name: "Chez Laurent", address:"Chemin de Salernes, 83570 Cotignac", sleeping_type:"authentique", description:"Le site est situé à flanc de colline, entièrement agencé en terrasses, au sein d’un écrin forestier. Il s’agit d’une très ancienne oliveraie, longtemps abandonnée, et que je restaure petit à petit. L'objectif à terme, hormis la culture d'oliviers et de figuiers, est de trouver, dans un lieu où la nature est préservée, différentes formes d'art et de bien-être. Pour l'instant bien sûr, le lieu est encore en grand chantier, et beaucoup reste à faire... A part ça, vous serez ici au calme et la nuit venue, préservé de toute pollution lumineuse donc sous un superbe ciel étoilé. :)")
+place8 = Place.new(name: "Chez Laurent", address:"Chemin de Salernes Salernes", sleeping_type:"authentique", description:"Le site est situé à flanc de colline, entièrement agencé en terrasses, au sein d’un écrin forestier. Il s’agit d’une très ancienne oliveraie, longtemps abandonnée, et que je restaure petit à petit. L'objectif à terme, hormis la culture d'oliviers et de figuiers, est de trouver, dans un lieu où la nature est préservée, différentes formes d'art et de bien-être. Pour l'instant bien sûr, le lieu est encore en grand chantier, et beaucoup reste à faire... A part ça, vous serez ici au calme et la nuit venue, préservé de toute pollution lumineuse donc sous un superbe ciel étoilé. :)")
 place8.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
 file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1615996605/ChezBera_nlf1bx.jpg')
@@ -215,53 +215,38 @@ place18.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
   end
 end
 
-# puts "Creating activities..."
-# file = URI.open('')
-# Activity1 = Activity.new(name: "", address:"", category:"randonnée", description:"")
-# Activity1.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
+ puts "Creating activities..."
+file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1616081257/envau_fnthye.jpg')
+activity1 = Activity.new(name: "Randonnée vers la calanque d’En-Vau & Port Pin", address:"Calanque d'En-Vau 13009 Marseille", category:"randonnée", description:"Au départ de Cassis, nous vous conseillons de faire la fameuse randonnée vers la calanque d’En-Vau qui va vous prendre 3h aller/retour. Le sentier permet de découvrir 3 calanques : Port Miou, Port Pin et En-Vau.")
+activity1.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
-# file = URI.open('')
-# Activity2 = Activity.new(name: "", address:"", category:"culture", description:"")
-# Activity2.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
+file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1616081257/montgibaou_td2jo6.jpg')
+activity2 = Activity.new(name: "Mont Gibaou", address:"Mont Gibaou Cassis", category:"randonnée", description:"Cette randonnée au départ de Cassis vous mènera au Mont Gibaou et au Baou Redon entre Cassis et Roquefort-La-Bédoule en suivant par endroit un ancien balisage Orange.")
+activity2.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
-# file = URI.open('')
-# Activity2 = Activity.new(name: "", address:"", category:"baignade", description:"")
-# Activity2.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
+file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1616081257/sugiton_upm2o0.jpg')
+activity3 = Activity.new(name: "Calanque de Sugiton et Morgiou", address:"Calanque de Sugiton", category:"balnéaire", description:"L’eau est une nouvelle fois magnifique et il y a de la place un peu partout que ce soit sur les roches ou sur les criques pour profiter pleinement de ce lieu.")
+activity3.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
-# file = URI.open('')
-# Activity3 = Activity.new(name: "", address:"", category:"détente", description:"")
-# Activity3.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
+file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1616081257/mugel_xkdibs.jpg')
+activity4 = Activity.new(name: "Calanque du Mugel", address:"Calanque du Mugel, 13600 La Ciotat", category:"balnéaire", description:"Le parc du Mugel est un parc botanique situé à La Ciotat, dans les Bouches-du-Rhône. Abrité des embruns par le Bec de l'Aigle et baigné par la Méditerranée, il bénéficie d'un climat propice.")
+activity4.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
-# file = URI.open('')
-# Activity4 = Activity.new(name: "", address:"", category:"animaux", description:"")
-# Activity4.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
+file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1616081257/gemenos_m9t4dh.jpg')
+activity5 = Activity.new(name: "Gémenos", address:"Gémenos", category:"villages", description:"Le petit village est un havre de repos et de paix dans lequel il fait toujours bon de se promener, le printemps arrivé.")
+activity5.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
-# file = URI.open('')
-# Activity5 = Activity.new(name: "", address:"", category:"", description:"")
-# Activity5.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
+file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1616081257/saintcyrsurmer_yrwyyp.jpg')
+activity6 = Activity.new(name: "Saint-cyr-sur-mer", address:"saint-cyr-sur-mer", category:"villages", description:"Largement ouvert sur la baie des Lecques, Saint Cyr sur Mer fait partie des musts de la Côte Provençale avec ses deux hameaux Les Lecques et La Madrague.")
+activity6.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
-# file = URI.open('')
-# Activity6 = Activity.new(name: "", address:"", category:"", description:"")
-# Activity6.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
-# file = URI.open('')
-# Activity7 = Activity.new(name: "", address:"", category:"", description:"")
-# Activity7.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
+[activity1, activity2, activity3, activity4, activity5, activity6].each do |activity_instance|
+   if activity_instance.save
+     puts "Created #{activity_instance.name}"
+   end
+ end
 
-# file = URI.open('')
-# Activity8 = Activity.new(name: "", address:"", category:"", description:"")
-# Activity8.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
-
-# file = URI.open('')
-# Activity9 = Activity.new(name: "", address:"", category:"", description:"")
-# Activity9.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
-
-# [Activity1, Activity2, Activity3, Activity4, Activity5, Activity6, Activity7, Activity8, Activity9].each do |activity_instance|
-#   if activity_instance.save
-#     puts "Created #{activity_instance.name}"
-#   end
-# end
-
-#   puts "Finished!"
+    puts "Finished!"
 
 
