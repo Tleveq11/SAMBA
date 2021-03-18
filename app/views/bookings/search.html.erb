@@ -8,7 +8,7 @@
     </div>
 
     <div class="van-card-price">
-        <p><strong><%= @van.price_per_night * @nights .to_i %>€</strong> pour <%= @nights %> nuits</p>
+        <p><strong><%= @van.price_per_night * @nights.to_i %>€</strong> pour <%= @nights %> nuits</p>
     </div>
 
     <p class="van-card-name"><%= @van.name %></p>
@@ -31,5 +31,10 @@
 
 <%# Affichage des suggestions d'emplacements %>
     <br>
-    <p><%= @place %></p>
+    <% @places_selection.each do |place| %>
+        <%= cl_image_tag place.photo.key %>
+        <%= place.name %>
+        <%= place.address %>
+    <% end %>
+
 </div>
