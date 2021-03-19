@@ -13,54 +13,101 @@
         <%= f.label :start_date, "Date de départ" %>
         <%= f.date_field :start_date %>
 
-    <br>
+        <br>
+        <div class="radio-group">
+            <div class="radio-option">
+                <%= f.radio_button :nights, 2, class: "radio" %>
+                <%= f.label :nights_2, cl_image_tag('https://res.cloudinary.com/df0stqosw/image/upload/v1616102358/Samba/nights2_lr2p7o.png') %>
+                <%= f.label :nights_2, "2 nuits"%>
+            </div>
+            <div class="radio-option">
+                <%= f.radio_button :nights, 4, class: "radio" %>
+                <%= f.label :nights_4, cl_image_tag('https://res.cloudinary.com/df0stqosw/image/upload/v1616102359/Samba/nights4_ehw0ax.png') %>
+                <%= f.label :nights_4, "4 nuits" %>
+            </div>
+            <div class="radio-option">
+                <%= f.radio_button :nights, 6, class: "radio" %>
+                <%= f.label :nights_6, cl_image_tag('https://res.cloudinary.com/df0stqosw/image/upload/v1616102359/Samba/nights6_c6oluq.png') %>
+                <%= f.label :nights_6, "6 nuits" %>
+            </div>
+        </div>
 
-        <%= f.radio_button :nights, 2 %>
-        <%= f.label :nights_two, "2 nuits" %>
-        <%= f.radio_button :nights, 4 %>
-        <%= f.label :nights_four, "4 nuits" %>
-        <%= f.radio_button :nights, 6 %>
-        <%= f.label :nights_six, "6 nuits" %>
+        <div class="radio-group">
+            <div class="radio-option">
+                <%= f.radio_button :place, "confort", class: "radio" %>
+                <%= f.label :place_confort, cl_image_tag('https://res.cloudinary.com/df0stqosw/image/upload/v1616101711/Samba/confort_omek1v.png')%>
+                <%= f.label :place_confort, "Hébergement confort"%>
+            </div>
+            <div class="radio-option">
+                <%= f.radio_button :place, "authentique", class: "radio" %>
+                <%= f.label :place_authentique, cl_image_tag('https://res.cloudinary.com/df0stqosw/image/upload/v1616101449/Samba/authentique_fz9fzn.png') %>
+                <%= f.label :place_authentique, "Hébergement authentique"%>
+            </div>
+            <div class="radio-option">
+                <%= f.radio_button :place, "nature", class: "radio" %>
+                <%= f.label :place_nature, cl_image_tag('https://res.cloudinary.com/df0stqosw/image/upload/v1616101712/Samba/nature_k3ualh.png') %>
+                <%= f.label :place_nature, "Bivouac nature"%>
+            </div>
+        </div>
 
-    <br>
+        
+        <div class="radio-group">
+            <div class="radio-option">
+                <%= f.radio_button :rythm, "relax", class: "radio" %>
+                <%= f.label :rythm_relax, cl_image_tag('https://res.cloudinary.com/df0stqosw/image/upload/v1616103661/Samba/relax_gqwojn.png') %>
+                <%= f.label :rythm_relax, "Rythme relax" %>
+            </div>
+            <div class="radio-option">
+                <%= f.radio_button :rythm, "moyen", class: "radio" %>
+                <%= f.label :rythm_moyen, cl_image_tag('https://res.cloudinary.com/df0stqosw/image/upload/v1616103661/Samba/moyen_sxsebv.png') %>
+                <%= f.label :rythm_moyen, "Rythme moyen" %>
+            </div>
+            <div class="radio-option">
+                <%= f.radio_button :rythm, "intense", class: "radio" %>
+                <%= f.label :rythm_intense, cl_image_tag('https://res.cloudinary.com/df0stqosw/image/upload/v1616103661/Samba/intense_wvmw83.png') %>
+                <%= f.label :rythm_intense, "Rythme intense" %>
+            </div>
+        </div>
 
-        <%= f.radio_button :place, "confort" %>
-        <%= f.label :place_confort, "Hébergement confort" %>
-        <%= f.radio_button :place, "authentique" %>
-        <%= f.label :place_authentique, "Hébergement authentique" %>
-        <%= f.radio_button :place, "nature" %>
-        <%= f.label :place_nature, "Bivouac nature" %>
+        <div class="radio-group">
+            <div class="radio-option">
+                <%= f.radio_button :passengers, "2", class: "radio" %>
+                <%= f.label :passengers_2, cl_image_tag('https://res.cloudinary.com/df0stqosw/image/upload/v1616105976/Samba/1-2_nmoeui.png') %>
+                <%= f.label :passengers_2, "1-2 pers." %>
+            </div>
+            <div class="radio-option">
+                <%= f.radio_button :passengers, "4", class: "radio" %>
+                <%= f.label :passengers_4, cl_image_tag('https://res.cloudinary.com/df0stqosw/image/upload/v1616105977/Samba/3-4_vvmuop.png') %>
+                <%= f.label :passengers_4, "3-4 pers." %>
+            </div>
+            <div class="radio-option">
+                <%= f.radio_button :passengers, "6", class: "radio" %>
+                <%= f.label :passengers_6, cl_image_tag('https://res.cloudinary.com/df0stqosw/image/upload/v1616104743/Samba/5-6_ixnln6.png') %>
+                <%= f.label :passengers_6, "5-6 pers." %>
+            </div>
+        </div>
+        
+        <div class="radio-group">
+            <div class="radio-option">
+                <%= f.radio_button :van_type, "vintage", class: "radio" %>
+                <%= f.label :van_type_vintage, cl_image_tag('https://res.cloudinary.com/df0stqosw/image/upload/v1616105976/Samba/vintage_gqjdzh.png') %>
+                <%= f.label :van_type_vintage, "Véhicule vintage" %>
+            </div>
+            <div class="radio-option">
+                <%= f.radio_button :van_type, "moderne", class: "radio" %>
+                <%= f.label :van_type_moderne, cl_image_tag('https://res.cloudinary.com/df0stqosw/image/upload/v1616105976/Samba/moderne_f08oxq.png') %>
+                <%= f.label :van_type_moderne, "Véhicule moderne" %>
+            </div>
+            <div class="radio-option">
+                <%= f.radio_button :van_type, "luxe", class: "radio" %>
+                <%= f.label :van_type_luxe, cl_image_tag('https://res.cloudinary.com/df0stqosw/image/upload/v1616105976/Samba/luxe_cayw7a.png') %>
+                <%= f.label :van_type_luxe, "Véhicule luxe" %>
+            </div>
+        </div>
 
-    <br>
-
-        <%= f.radio_button :rythm, "relax" %>
-        <%= f.label :rythm_relax, "Rythme relax" %>
-        <%= f.radio_button :rythm, "moyen" %>
-        <%= f.label :rythm_moyen, "Rythme moyen" %>
-        <%= f.radio_button :rythm, "intense" %>
-        <%= f.label :rythm_intense, "Rythme intense" %>
-
-    <br>
-
-        <%= f.radio_button :passengers, "2" %>
-        <%= f.label :passengers_one_two, "1-2 pers." %>
-        <%= f.radio_button :passengers, "4" %>
-        <%= f.label :passengers_three_four, "3-4 pers." %>
-        <%= f.radio_button :passengers, "6" %>
-        <%= f.label :passengers_five_six, "5-6 pers." %>
-    
-     <br>
-
-        <%= f.radio_button :van_type, "vintage" %>
-        <%= f.label :van_type_vintage, "Véhicule vintage" %>
-        <%= f.radio_button :van_type, "moderne" %>
-        <%= f.label :van_type_moderne, "Véhicule moderne" %>
-        <%= f.radio_button :van_type, "luxe" %>
-        <%= f.label :van_type_luxe, "Véhicule luxe" %>
-
-     <br>
-
-        <%= f.submit %>
+        <div class="text-center my-3">
+            <%= f.submit "Créer mon voyage!", class: "btn-samba" %>
+        </div>
 
     <% end %>
 

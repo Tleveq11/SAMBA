@@ -1,0 +1,49 @@
+.radio {
+    position: absolute;
+    transform: scale(0);
+}
+
+.radio-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.radio-option {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    flex-basis: 30%;
+}
+
+label > img {
+    height: 80px;
+    filter: opacity(60%) grayscale(1);
+    border-radius: 50%;
+    border: 1px solid $dark-green;
+    margin-bottom: 0;
+    margin-top: 8px;
+}
+
+.radio:checked + label > img {
+    filter: none;
+    border: 2px solid $dark-green;
+
+    &:active {
+        transform: scale(0.97);
+    }
+}
+
+.radio:checked ~ label {
+    color:$dark-green;
+    font-weight: bold;
+}
+
+.radio ~ label {
+    font-size: 13px;
+    margin-bottom: 0;
+}
+
+
+
+
+
