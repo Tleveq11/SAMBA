@@ -1,0 +1,25 @@
+.banner {
+    background-size: cover;
+    background-position: center;
+    padding: 150px 0;
+    height: 90vh;
+    margin: 0 -16px;
+    padding-left: 24px;
+}
+
+.banner h1 {
+    margin: 0;
+    font-size: 48px;
+    line-height: 0.8;
+    font-family: 'Abril Fatface', cursive;
+    color: $dark-green;
+    margin-top: -80px;
+}
+
+.offset-form {
+    margin-top: -130px;
+}
+
+#first-radio {
+    margin-top: 20px;
+}

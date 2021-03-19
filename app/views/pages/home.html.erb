@@ -1,20 +1,27 @@
+<div class="banner" style="background-image: url(https://res.cloudinary.com/df0stqosw/image/upload/v1616162212/Samba/banner_pigqkc.jpg);">
+    <div>
+        <h1>Samba</h1>
+        <p class="subtitle-green">Créez, voyagez, l'esprit libre</p>
+    </div>
+</div>
 
-<div class="container">
-    
-    <h1>Samba</h1>
+<div class="container offset-form">
 
     <%= form_with(url: "/results", method: "get", local: true) do |f| %>
 
-        <%= f.label :departure, "Ville de départ" %>
-        <%= f.text_field :departure %>
+        <div class="input-group">
+            <%= f.label :departure, "Ville de départ", class: "input-group-text" %>
+            <%= f.text_field :departure, class: "form-control" %>
+        </div>
 
     <br>
-
-        <%= f.label :start_date, "Date de départ" %>
-        <%= f.date_field :start_date %>
+        <div class="input-group">
+            <%= f.label :start_date, "Date de départ", class: "input-group-text" %>
+            <%= f.date_field :start_date, class: "form-control" %>
+        </div>
 
         <br>
-        <div class="radio-group">
+        <div class="radio-group" id="first-radio">
             <div class="radio-option">
                 <%= f.radio_button :nights, 2, class: "radio" %>
                 <%= f.label :nights_2, cl_image_tag('https://res.cloudinary.com/df0stqosw/image/upload/v1616102358/Samba/nights2_lr2p7o.png') %>
