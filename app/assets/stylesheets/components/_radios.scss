@@ -43,6 +43,15 @@ label > img {
     margin-bottom: 0;
 }
 
+.input-group-text {
+    border-radius: 50px 0px 0px 50px;
+    border-right: none;
+}
+
+.form-control {
+    border-radius: 0px 50px 50px 0px;
+}
+
 
 
 
