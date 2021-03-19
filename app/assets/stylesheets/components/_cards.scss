@@ -82,6 +82,30 @@
   padding: 10px;
 }
 
+// card-place with drag and drop
+
+#p-suggestions {
+  padding-left: 0;
+  li {
+  cursor: grab;
+  list-style: none;
+  }
+}
+
+#p-selection {
+  padding-left: 0;
+  li {
+  cursor: grab;
+  list-style: none;
+  }
+}
+
+li.first + li.empty {
+  height: 120px;
+  border: 1px solid lightgray;
+}
+
+
 // modal
 .modal-content {
   padding: 15px;
@@ -112,3 +136,4 @@
   margin-bottom: 0;
   margin-top: 8px;
 }
+

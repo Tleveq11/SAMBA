@@ -37,8 +37,9 @@ def search
       lat: place.latitude,
       lng: place.longitude
     }
-    
   end
+
+  @counter = 0
 
 end
 
