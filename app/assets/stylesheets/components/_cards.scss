@@ -39,3 +39,45 @@
     font-size: 14px;
 }
 
+// card place
+
+.card-place {
+  overflow: hidden;
+  height: 140px;
+  background: white;
+  border: 1px solid rgb(235,235,235);
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.card-place-img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.place-card-name {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.place-card-address {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 0px;
+}
+
+.place-card-description {
+  font-size: 12px;
+  line-height: 1.4;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-place .card-place-infos {
+  padding: 10px;
+}
