@@ -35,9 +35,22 @@
     <div class="card-place">
       <%= cl_image_tag place.photo.key, class: "card-place-img" %>
       <div class="card-place-infos">
-          <p class="place-card-name"><%= place.name %></p>
-          <p class="place-card-address"><%= place.address %></p>
-          <p class="place-card-description"><%= place.description.first(100) %>...</p>
+        <p class="place-card-name"><%= place.name %></p>
+        <p class="place-card-address"><%= place.address %></p>
+        <p class="place-card-description"><%= place.description.first(100) %>...</p>
+        <div class="d-flex justify-content-end w-100">
+          <%= image_tag "eye-samba.svg", class:"modal-button", data:{toggle: "modal", target:"#place-#{place.id}"} %>
+        </div>
+          <div class="modal fade" id="place-<%= place.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                  <%= cl_image_tag place.photo.key, class: "modal-img" %>
+              <div class="modal-content">
+                  <p class="modal-title" ><%= place.name %></p>
+                  <p class="place-card-address"><%= place.address %></p>
+                  <p class="place-card-description"><%= place.description %></p>
+              </div>
+            </div>
+          </div>
       </div>
     </div>
   <% end %>
