@@ -1,12 +1,17 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  font-family: 'Abril Fatface', cursive;
+
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
+
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+#samba-logo {
+  color: $dark-green;
+  font-family: 'Abril Fatface', cursive;
 }
