@@ -81,3 +81,34 @@
 .card-place .card-place-infos {
   padding: 10px;
 }
+
+// modal
+.modal-content {
+  padding: 15px;
+}
+
+.modal-img{
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.modal-title{
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.place-card-address {
+  font-size: 12px;
+  line-height: 1.4;
+  margin-bottom: 0;
+  margin-top: 0px;
+}
+
+.place-card-description {
+  font-size: 12px;
+  line-height: 1.4;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
