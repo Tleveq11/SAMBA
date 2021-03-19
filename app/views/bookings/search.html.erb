@@ -31,10 +31,14 @@
 
 <%# Affichage des suggestions d'emplacements %>
     <br>
-    <% @places_selection.each do |place| %>
-        <%= cl_image_tag place.photo.key %>
-        <%= place.name %>
-        <%= place.address %>
-    <% end %>
-
+  <% @places_selection.each do |place| %>
+    <div class="card-place">
+      <%= cl_image_tag place.photo.key, class: "card-place-img" %>
+      <div class="card-place-infos">
+          <p class="place-card-name"><%= place.name %></p>
+          <p class="place-card-address"><%= place.address %></p>
+          <p class="place-card-description"><%= place.description.first(100) %>...</p>
+      </div>
+    </div>
+  <% end %>
 </div>

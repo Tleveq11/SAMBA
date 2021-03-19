@@ -125,7 +125,7 @@ end
 
 puts "Creating places..."
 file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1615989555/Place1_udwxxf.png')
-place1 = Place.new(name: "Camping de Cassis Les Cigales", address:"43 Avenue de la Marne 13260 Cassis", sleeping_type:"confort", description:"Camping situé dans les hauteurs de Cassis à 20min à pied du centre ville et à 1h des calanques. Vous pourrez profitez des sanitaires et douches, très propres, de la piscine et d'emplacements privilégiés où poser votre van avec une vue mer.")
+place1 = Place.new(name: "Camping Les Cigales", address:"43 Avenue de la Marne 13260 Cassis", sleeping_type:"confort", description:"Camping situé dans les hauteurs de Cassis à 20min à pied du centre ville et à 1h des calanques. Vous pourrez profitez des sanitaires et douches, très propres, de la piscine et d'emplacements privilégiés où poser votre van avec une vue mer.")
 place1.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
 file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1616079958/camping-du-garlaban_qq3h8s.jpg')
@@ -153,7 +153,7 @@ place5 = Place.new(name: "Camping Fontvieille", address:"114 Rue Michelet 13990 
 place5.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
 file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1615990627/camping6_g8pgs0.jpg')
-place6 = Place.new(name: "Camping Municipal Bottaïe", address:"30 Avenue Frédéric Mistral, 13110 Port-de-Bouc", sleeping_type:"confort", description:"Le Bottai est classé 3 étoiles. Camping familial de 80 emplacements avec des hébergements se situant à 10 m d'une petite plage. Piscine avec tobbogans, animations le soir, plage privative, emplacments spacieux.")
+place6 = Place.new(name: "Camping Bottaïe", address:"30 Avenue Frédéric Mistral, 13110 Port-de-Bouc", sleeping_type:"confort", description:"Le Bottai est classé 3 étoiles. Camping familial de 80 emplacements avec des hébergements se situant à 10 m d'une petite plage. Piscine avec tobbogans, animations le soir, plage privative, emplacments spacieux.")
 place6.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
 file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1615995045/chezgg_pkc8ds.jpg')
