@@ -1,4 +1,4 @@
-activities.html.erb
+
  <%= form_with(url: "/activities", method: "get", local: true) do |f| %>
 
 
@@ -16,7 +16,7 @@ activities.html.erb
 
                 <%= f.label :category_culture, cl_image_tag('https://res.cloudinary.com/df0stqosw/image/upload/v1616257443/Samba/Activities/culture.png_sy0g7x.png') %>
 
-                
+
                 <%= f.label :category_culture, "Culture" %>
             </div>
             <div class="radio-option">
@@ -31,12 +31,12 @@ activities.html.erb
         <div class="radio-group">
             <div class="radio-option">
                 <%= f.check_box :category_détente, class: "radio" %>
-                <%= f.label :category_détente, cl_image_tag('https://res.cloudinary.com/df0stqosw/image/upload/v1616101711/Samba/confort_omek1v.png')%>
+                <%= f.label :category_détente, cl_image_tag('https://res.cloudinary.com/df0stqosw/image/upload/v1616257443/Samba/Activities/d%C3%A9tente.png_fywhkd.png')%>
                 <%= f.label :category_détente, "Détente"%>
             </div>
             <div class="radio-option">
                 <%= f.check_box  :category_animaux, class: "radio" %>
-                <%= f.label :category_animaux, cl_image_tag('https://res.cloudinary.com/df0stqosw/image/upload/v1616101449/Samba/authentique_fz9fzn.png') %>
+                <%= f.label :category_animaux, cl_image_tag('https://res.cloudinary.com/df0stqosw/image/upload/v1616258767/Samba/Activities/animaux.png_i6vacg.png') %>
                 <%= f.label :category_animaux, "Animaux"%>
             </div>
             <div class="radio-option">

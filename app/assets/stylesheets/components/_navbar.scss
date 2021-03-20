@@ -1,10 +1,17 @@
 .navbar-brand {
-  justify-content: space-between;
   background: white;
   font-family: 'Abril Fatface', cursive;
-  color: $dark-green;
+
+  display: flex;
+
+  align-items: center;
 }
 
+
+#textnavbar{
+  color: $dark-green;
+  font-family: 'Abril Fatface', cursive;
+}
 
 
 .navbar .navbar-brand img {
