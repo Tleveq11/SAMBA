@@ -1,13 +1,13 @@
-.navbar-lewagon {
+.navbar-brand {
   justify-content: space-between;
   background: white;
   font-family: 'Abril Fatface', cursive;
-
+  color: $dark-green;
 }
 
 
 
-.navbar-lewagon .navbar-brand img {
+.navbar .navbar-brand img {
   width: 40px;
 }
 

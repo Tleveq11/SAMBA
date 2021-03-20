@@ -1,0 +1,66 @@
+activities.html.erb
+ <%= form_with(url: "/activities", method: "get", local: true) do |f| %>
+
+
+        <div class="radio-group" id="first-radio">
+            <div class="radio-option">
+                <%= f.check_box :category_randonnée, class: "radio" %>
+                <%= f.label :category_randonnée, cl_image_tag('https://res.cloudinary.com/df0stqosw/image/upload/v1616257443/Samba/Activities/randonnee.png_mdchoh.png') %>
+                <%= f.label :category_randonnée, "Randonnée"%>
+            </div>
+            <div class="radio-option">
+                <%= f.check_box :category_culture, class: "radio" %>
+                <%= f.label :category_culture, cl_image_tag('https://res.cloudinary.com/df0stqosw/image/upload/v1616257443/Samba/Activities/culture.png_sy0g7x.png') %>
+                <%= f.label :category_culture, "Culture" %>
+            </div>
+            <div class="radio-option">
+                <%= f.check_box  :category_baignade, class: "radio" %>
+                <%= f.label :category_baignade, cl_image_tag('https://res.cloudinary.com/df0stqosw/image/upload/v1616257443/Samba/Activities/swim.png_whjwiz.png') %>
+                <%= f.label :category_baignade, "Baignade" %>
+            </div>
+        </div>
+
+        <div class="radio-group">
+            <div class="radio-option">
+                <%= f.check_box :category_détente, class: "radio" %>
+                <%= f.label :category_détente, cl_image_tag('https://res.cloudinary.com/df0stqosw/image/upload/v1616101711/Samba/confort_omek1v.png')%>
+                <%= f.label :category_détente, "Détente"%>
+            </div>
+            <div class="radio-option">
+                <%= f.check_box  :category_animaux, class: "radio" %>
+                <%= f.label :category_animaux, cl_image_tag('https://res.cloudinary.com/df0stqosw/image/upload/v1616101449/Samba/authentique_fz9fzn.png') %>
+                <%= f.label :category_animaux, "Animaux"%>
+            </div>
+            <div class="radio-option">
+                <%= f.check_box :category_familial, class: "radio" %>
+                <%= f.label :category_familial, cl_image_tag('https://res.cloudinary.com/df0stqosw/image/upload/v1616257443/Samba/Activities/famille.png_sdo0hy.png') %>
+                <%= f.label :category_familial, "Familial"%>
+            </div>
+        </div>
+
+
+        <div class="radio-group">
+            <div class="radio-option">
+                <%= f.check_box  :category_sensations, class: "radio" %>
+                <%= f.label :category_sensations, cl_image_tag('https://res.cloudinary.com/df0stqosw/image/upload/v1616257443/Samba/Activities/sensations.png_ts1mfg.png') %>
+                <%= f.label :category_sensations, "Sensations" %>
+            </div>
+            <div class="radio-option">
+                <%= f.check_box  :category_villes, class: "radio" %>
+                <%= f.label :category_villes, cl_image_tag('https://res.cloudinary.com/df0stqosw/image/upload/v1616257442/Samba/Activities/village.png_rxjzcr.png') %>
+                <%= f.label :category_villes, "Villes et villages" %>
+            </div>
+            <div class="radio-option">
+                <%= f.check_box  :category_gastronommie, class: "radio" %>
+                <%= f.label :category_gastronommie, cl_image_tag('https://res.cloudinary.com/df0stqosw/image/upload/v1616257443/Samba/Activities/gastronomie.png_tc5q0f.png') %>
+                <%= f.label :category_gastronommie, "Gastronomie" %>
+            </div>
+        </div>
+
+        <div class="text-center my-3">
+            <%= f.submit "Créer mon voyage!", class: "btn-samba" %>
+        </div>
+
+    <% end %>
+
+</div>
