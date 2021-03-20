@@ -26,7 +26,7 @@ def search
   else
     @radius = 200
   end
-  
+
   @places_by_type = Place.find_place_from_criteria(@sleeping_type)
   @places_by_distance = Place.near([@departure_lat, @departure_long], @radius)
   @places_selection = @places_by_type & @places_by_distance
@@ -41,6 +41,9 @@ def search
 
   @counter = 0
 
+end
+
+def activities
 end
 
 # private
