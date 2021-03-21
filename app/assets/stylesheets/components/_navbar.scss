@@ -1,12 +1,8 @@
 .navbar-brand {
   background: white;
-  font-family: 'Abril Fatface', cursive;
+ font-family: 'Abril Fatface', cursive;
 
-  display: flex;
-
-  align-items: center;
 }
-
 
 #textnavbar{
   color: $dark-green;
@@ -21,4 +17,5 @@
 #samba-logo {
   color: $dark-green;
   font-family: 'Abril Fatface', cursive;
+
 }
