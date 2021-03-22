@@ -49,7 +49,23 @@ end
 def activities
   @booking = current_user.bookings.last
   @nights = (@booking.end_date - @booking.start_date).to_i
-  # params[:location1]
+  @counter = 1
+  @params = [params[:location1],
+              params[:location2],
+              params[:location3],
+              params[:location4],
+              params[:location5],
+              params[:location6]]
+  @saved_params = []
+  @params.each_with_index do |param, index|
+    if param
+      @saved_params << param
+      # return => ["38", "40", "41", "39"]
+    end
+  end
+  @saved_params.each do |param|
+    BookingPlace.create(place_id: param, booking_id: @booking.id)
+  end
 end
 
 def search_activities
