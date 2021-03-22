@@ -14,7 +14,7 @@ def search
   @rythm = params[:rythm]
   @passengers = params[:passengers]
   @van_type = params[:van_type]
-  
+
   # récupérer le van en fonction de passengers et van type
   @van = Van.find_van_from_criteria(@passengers, @van_type)
   @total_price = @van.price_per_night * @nights.to_i
@@ -55,6 +55,20 @@ def activities
 end
 
 def search_activities
+
+#mapbox
+@booking = current_user.bookings.last
+@places = @booking.places
+  @markers = @places_selection.map do |place|
+    {
+      lat: place.latitude,
+      lng: place.longitude,
+      infoWindow: render_to_string(partial: "info_window", locals: { place: place })
+
+    }
+  end
+
+
     # récupérer les places en fonction de category
   @params = [params[:category_randonnée],
              params[:category_baignade],
@@ -76,8 +90,15 @@ def search_activities
   @activities_selection = Activity.where(category: @choices)
 end
 
+
+
+
+
+
+
 private
 
 def booking_params
     params.require(:booking).permit(:start_date, :end_date, :total_price)
+end
 end

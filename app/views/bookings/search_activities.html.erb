@@ -1,5 +1,10 @@
 <%# Affichage de la carte %>
-
+<div id="map"
+    style="width: 100%; height: 400px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    data-lat= "<%= @departure_lat%>"
+    data-long="<%= @departure_long%>"> </div>
 <%# Affichage de la liste (vide au départ) de sélection d'activités %>
 
 <%# Affichage des suggestions d'activités %>
