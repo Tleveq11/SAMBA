@@ -29,10 +29,12 @@ import "bootstrap";
 import { initMapbox } from '../plugins/init_mapbox';
 import { initPlacesave } from "../plugins/init_placesave";
 import { initSortable } from '../plugins/init_sortable';
+import { initSortableActivities } from '../plugins/init_sortable_activities';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
    initSortable();
+   initSortableActivities();
    initMapbox();
    initPlacesave();
 });

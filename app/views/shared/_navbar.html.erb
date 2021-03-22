@@ -1,21 +1,18 @@
-
-<nav class="navbar navbar-expand-sm navbar-light ">
-  <span class="navbar-brand mb-0 h1" id="textnavbar">Samba</span>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav" id="logo">
-      <% if user_signed_in? %>
-        <li class="nav-item justify-content-end dropdown ">
-          <%= image_tag"https://res.cloudinary.com/df0stqosw/image/upload/v1616068410/Samba/user_flqxzl.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-
-</nav>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  
+  <%= link_to "Samba", root_path, class: "navbar-brand d-flex align-items-center navbar-title", id: "navbar-title"%>
+  
+    <% if user_signed_in? %>
+      <li class="dropdown">
+        <img src="https://res.cloudinary.com/df0stqosw/image/upload/v1616068410/Samba/user_flqxzl.png" class="btn-navbar" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+          <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        </div>
+      </li>
+    <% else  %>
+      <li class="nav-item active">
+        <%= link_to "Se connecter", new_user_session_path, class: "nav-link btn-navbar", id: "login-btn"%>
+      </li>
+    <%  end %>
+</div>

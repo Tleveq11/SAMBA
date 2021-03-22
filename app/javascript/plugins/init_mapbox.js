@@ -12,13 +12,12 @@ const initMapbox = () => {
   const mapElement = document.getElementById('map');
   const mapElement2 = document.getElementById('map2');
 
+
   if (mapElement) { // only build a map if there's a div#map to inject into
     const centerLat = parseFloat(mapElement.dataset.lat);
     const centerLong = parseFloat(mapElement.dataset.long);
 
    // map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken, mapboxgl: mapboxgl }));
-
-// new map
 
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({

@@ -1,21 +1,44 @@
+.navbar-lewagon {
+  justify-content: space-between;
+  background-color: $white;
+  box-shadow: 0 4px 12px -12px rgba(0,0,0,0.6);
+  margin: 0 -16px;
+}
+
 .navbar-brand {
-  background: white;
- font-family: 'Abril Fatface', cursive;
-
+  color: white;
 }
 
-#textnavbar{
+.nav-link {
+  text-decoration: none;
+  color: white;
+}
+
+.btn-navbar {
+  height: 40px;
+}
+
+.dropdown {
+  list-style: none;
+}
+
+.nav-item {
+  list-style: none;
+}
+
+.navbar-title {
   color: $dark-green;
   font-family: 'Abril Fatface', cursive;
 }
 
-
-.navbar .navbar-brand img {
-  width: 40px;
+#navbar-title {
+  color: $dark-green;
 }
 
-#samba-logo {
-  color: $dark-green;
-  font-family: 'Abril Fatface', cursive;
-
+.navbar-home {
+  justify-content: flex-end;
+  z-index: 1;
+  position: absolute;
+  right: 16px;
+  margin: 0 -16px;
 }

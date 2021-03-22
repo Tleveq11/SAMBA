@@ -1,4 +1,4 @@
-import Sortable from 'sortablejs/modular/sortable.complete.esm.js';
+import Sortable from 'sortablejs';
 
 const initSortable = () => {
   const suggestions = document.getElementById('p-suggestions');
@@ -10,7 +10,7 @@ const initSortable = () => {
     });
   }
   const selection = document.getElementById('p-selection');
-  if (selection) {
+  if (selection) {   
     Sortable.create(selection, {
       group: "places",
       filter: ".first",
