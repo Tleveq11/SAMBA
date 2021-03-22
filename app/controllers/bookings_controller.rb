@@ -69,6 +69,22 @@ def activities
 end
 
 def search_activities
+
+#mapbox
+@booking = current_user.bookings.last
+@places = @booking.places
+@departure_lat = (43.300000).to_s
+@departure_long = (5.4).to_s
+  @markers = @places.map do |place|
+    {
+      lat: place.latitude,
+      lng: place.longitude,
+      infoWindow: render_to_string(partial: "info_window", locals: { place: place })
+
+    }
+  end
+
+
     # récupérer les places en fonction de category
   @params = [params[:category_randonnée],
              params[:category_baignade],
@@ -88,7 +104,21 @@ def search_activities
     end
   end
   @activities_selection = Activity.where(category: @choices)
+  @activities_markers = @activities_selection.map do |activity|
+    {
+      lat: activity.latitude,
+      lng: activity.longitude,
+      infoWindow: render_to_string(partial: "info_window2", locals: { activity: activity })
+
+    }
+  end
 end
+
+
+
+
+
+
 
 private
 

@@ -10,6 +10,7 @@ const initPlacesave = () => {
 
 const placeSelection = () => {
     const selection = document.getElementById('p-selection');
+
     if (selection) {
         const selectedPlaces = selection.querySelectorAll('.swap');
         console.log(selectedPlaces);
