@@ -40,7 +40,7 @@
 <h2 class="subtitle-green">Mes suggestions</h2>
   <ul id="p-suggestions">
     <% @places_selection.each do |place| %>
-      <li class="swap">
+      <li class="swap" data-place-id="<%=place.id%>">
         <div class="card-place">
           <%= cl_image_tag place.photo.key, class: "card-place-img" %>
           <div class="card-place-infos">
@@ -66,5 +66,11 @@
     <% end %>
   </ul>
 </div>
+
+<%# Bouton submit %>
+
+<button id="places-select">Créer</button>
+
+
 
 
