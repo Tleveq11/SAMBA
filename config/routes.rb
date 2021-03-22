@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   resources :bookings, only: [:new, :create, :show]
   get '/results', to: 'bookings#search'
   get '/activities', to: 'bookings#activities'
+  get '/results_activities', to: 'bookings#search_activities'
 
 end
