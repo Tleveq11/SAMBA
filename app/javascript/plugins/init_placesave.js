@@ -24,7 +24,7 @@ const placeSelection = () => {
             char.push(`location${counter}=${place}`)
             counter += 1
         })
-        window.location.href = `http://localhost:3000/activities?${char.join('&')}`
+        window.location.href = `${window.location.origin}/activities?${char.join('&')}`
       }
 };
 
