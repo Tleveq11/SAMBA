@@ -3,7 +3,7 @@
 <h2 class="subtitle-green text-center">Sélectionnez 3 thèmes</h2>
 
 
- <%= form_with(url: "/activities", method: "get", local: true) do |f| %>
+ <%= form_with(url: "/results_activities", method: "get", local: true) do |f| %>
 
 
         <div class="radio-group" id="first-radio">
@@ -52,9 +52,9 @@
                 <%= f.label :category_villes, "Villes et villages" %>
             </div>
             <div class="radio-option">
-                <%= f.check_box  :category_gastronommie, class: "radio" %>
-                <%= f.label :category_gastronommie, cl_image_tag('https://res.cloudinary.com/df0stqosw/image/upload/v1616257443/Samba/Activities/gastronomie.png_tc5q0f.png') %>
-                <%= f.label :category_gastronommie, "Gastronomie" %>
+                <%= f.check_box  :category_gastronomie, class: "radio" %>
+                <%= f.label :category_gastronomie, cl_image_tag('https://res.cloudinary.com/df0stqosw/image/upload/v1616257443/Samba/Activities/gastronomie.png_tc5q0f.png') %>
+                <%= f.label :category_gastronomie, "Gastronomie" %>
             </div>
         </div>
 

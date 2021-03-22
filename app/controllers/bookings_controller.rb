@@ -38,9 +38,9 @@ def search
   @markers = @places_selection.map do |place|
     {
       lat: place.latitude,
-      lng: place.longitude
-      #infoWindow: render_to_string(partial: "infowindow", locals: { place: place })
-      #image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+      lng: place.longitude,
+      infoWindow: render_to_string(partial: "info_window", locals: { place: place })
+
     }
   end
 
@@ -54,10 +54,30 @@ def activities
   # params[:location1]
 end
 
+def search_activities
+    # récupérer les places en fonction de category
+  @params = [params[:category_randonnée],
+             params[:category_baignade],
+             params[:category_villes],
+             params[:category_culture],
+             params[:category_détente],
+             params[:category_animaux],
+             params[:category_familial],
+             params[:category_sensations],
+             params[:category_gastronomie]]
+
+  @categories = ["randonnée", "balnéaire", "villages", "culture", "détente", "animaux", "familial", "sensations", "gastronomie"]
+  @choices = []
+  @params.each_with_index do |param, index|
+    if param == "1"
+      @choices << @categories[index]
+    end
+  end
+  @activities_selection = Activity.where(category: @choices)
+end
+
 private
 
 def booking_params
-  params.require(:booking).permit(:start_date, :end_date, :total_price)
-end
-
+    params.require(:booking).permit(:start_date, :end_date, :total_price)
 end
