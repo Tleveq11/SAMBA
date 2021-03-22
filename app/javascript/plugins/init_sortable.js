@@ -1,20 +1,22 @@
-import Sortable from 'sortablejs/modular/sortable.complete.esm.js';
+import Sortable from 'sortablejs';
 
 const initSortable = () => {
   const suggestions = document.getElementById('p-suggestions');
-  Sortable.create(suggestions, {
-    group: "places",
-    // swap: true,
-    // swapClass: '.swap'
-  });
-  const selection = document.getElementById('p-selection');
-  Sortable.create(selection, {
-    group: "places",
-    filter: ".first",
-    filter: ".empty",
-    swap: true,
-    swapClass: 'swap'
-  });
+  if (suggestions) {
+    console.log("Sortable sur les emplacements")
+    Sortable.create(suggestions, {
+      group: "places",
+      // swap: true,
+      // swapClass: '.swap'
+    });
+    const selection = document.getElementById('p-selection');
+    Sortable.create(selection, {
+      group: "places",
+      filter: ".first",
+      filter: ".empty",
+      swap: true,
+      swapClass: 'swap'
+    });}
 };
 
 export { initSortable };

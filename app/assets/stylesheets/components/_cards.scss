@@ -180,3 +180,25 @@ li.first + li.empty {
   padding: 10px;
 }
 
+// card-activity with drag and drop
+
+#a-suggestions {
+  padding-left: 0;
+  li {
+  cursor: grab;
+  list-style: none;
+  }
+}
+
+#a-selection {
+  padding-left: 0;
+  li {
+  cursor: grab;
+  list-style: none;
+  }
+}
+
+.empty-activities {
+  height: 120px;
+  border: 1px solid lightgray;
+}

@@ -14,7 +14,7 @@ def search
   @rythm = params[:rythm]
   @passengers = params[:passengers]
   @van_type = params[:van_type]
-  
+
   # récupérer le van en fonction de passengers et van type
   @van = Van.find_van_from_criteria(@passengers, @van_type)
   @total_price = @van.price_per_night * @nights.to_i
