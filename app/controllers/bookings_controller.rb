@@ -35,9 +35,9 @@ def search
   @markers = @places_selection.map do |place|
     {
       lat: place.latitude,
-      lng: place.longitude
-      #infoWindow: render_to_string(partial: "infowindow", locals: { place: place })
-      #image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+      lng: place.longitude,
+      infoWindow: render_to_string(partial: "info_window", locals: { place: place })
+
     }
   end
 
