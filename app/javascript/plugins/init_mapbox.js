@@ -10,14 +10,13 @@ const fitMapToMarkers = (map, markers) => {
 
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
-  const centerLat = parseFloat(mapElement.dataset.lat);
-  const centerLong = parseFloat(mapElement.dataset.long);
 
   if (mapElement) { // only build a map if there's a div#map to inject into
 
    // map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken, mapboxgl: mapboxgl }));
 
-
+    const centerLat = parseFloat(mapElement.dataset.lat);
+    const centerLong = parseFloat(mapElement.dataset.long);
 
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({

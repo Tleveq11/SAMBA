@@ -1,29 +1,37 @@
 <%# Affichage de la carte %>
 
 <%# Affichage de la liste (vide au départ) de sélection d'activités %>
+<h2 class="subtitle-green">Mes activités</h2>
+<ul id="a-selection">
+    <li class="empty-activities"></li>
+</ul>
 
 <%# Affichage des suggestions d'activités %>
 <h2 class="subtitle-green">Suggestions</h2>
-  <% @activities_selection.each do |activity| %>
-      <div class="card-activity">
-        <%= cl_image_tag activity.photo.key, class: "card-activity-img" %>
-        <div class="card-activity-infos">
-          <p class="activity-card-name"><%= activity.name %></p>
-          <p class="activity-card-address"><%= activity.address %></p>
-          <p class="activity-card-description"><%= activity.description.first(80) %>...</p>
-          <div class="d-flex justify-content-end w-100">
-            <%= image_tag "eye-samba.svg", class:"modal-button", data:{toggle: "modal", target:"#activity-#{activity.id}"} %>
-          </div>
-            <div class="modal fade" id="activity-<%= activity.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                    <%= cl_image_tag activity.photo.key, class: "modal-img" %>
-                <div class="modal-content">
-                    <p class="modal-title" ><%= activity.name %></p>
-                    <p class="activity-card-address"><%= activity.address %></p>
-                    <p class="activity-card-description"><%= activity.description %></p>
+  <ul id="a-suggestions">
+    <% @activities_selection.each do |activity| %>
+      <li class="swap" data-activities-id="<%=activity.id%>" >
+        <div class="card-activity">
+          <%= cl_image_tag activity.photo.key, class: "card-activity-img" %>
+          <div class="card-activity-infos">
+            <p class="activity-card-name"><%= activity.name %></p>
+            <p class="activity-card-address"><%= activity.address %></p>
+            <p class="activity-card-description"><%= activity.description.first(80) %>...</p>
+            <div class="d-flex justify-content-end w-100">
+              <%= image_tag "eye-samba.svg", class:"modal-button", data:{toggle: "modal", target:"#activity-#{activity.id}"} %>
+            </div>
+              <div class="modal fade" id="activity-<%= activity.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                      <%= cl_image_tag activity.photo.key, class: "modal-img" %>
+                  <div class="modal-content">
+                      <p class="modal-title" ><%= activity.name %></p>
+                      <p class="activity-card-address"><%= activity.address %></p>
+                      <p class="activity-card-description"><%= activity.description %></p>
+                  </div>
                 </div>
               </div>
-            </div>
+          </div>
         </div>
-      </div>
-  <% end %>
+      </li>
+    <% end %>
+  </ul>
