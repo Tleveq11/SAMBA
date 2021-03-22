@@ -52,7 +52,6 @@ def activities
   @booking = current_user.bookings.last
   @nights = (@booking.end_date - @booking.start_date).to_i
   # params[:location1]
-  raise
 end
 
 private
