@@ -48,10 +48,32 @@ end
 def activities
 end
 
+def search_activities
+    # récupérer les places en fonction de category
+  @params = [params[:category_randonnée],
+             params[:category_baignade],
+             params[:category_villes],
+             params[:category_culture],
+             params[:category_détente],
+             params[:category_animaux],
+             params[:category_familial],
+             params[:category_sensations],
+             params[:category_gastronomie]]
+
+  @categories = ["randonnée", "balnéaire", "villages", "culture", "détente", "animaux", "familial", "sensations", "gastronomie"]
+  @choices = []
+  @params.each_with_index do |param, index|
+    if param == "1"
+      @choices << @categories[index]
+    end
+  end
+
+  @activities_selection = Activity.where(category: @choices)
+end
+
 # private
 
 #   def booking_params
 #     params.require(:booking).permit(:start_date, :end_date, :total_price)
 #   end
-
 end
