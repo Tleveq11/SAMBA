@@ -27,10 +27,12 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import { initMapbox } from '../plugins/init_mapbox';
+import { initPlacesave } from "../plugins/init_placesave";
 import { initSortable } from '../plugins/init_sortable';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
    initSortable();
    initMapbox();
+   initPlacesave();
 });

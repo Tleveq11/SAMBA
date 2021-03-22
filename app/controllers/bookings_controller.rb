@@ -9,13 +9,16 @@ def search
 
   @start_date = params[:start_date]
   @nights = params[:nights]
+  @end_date = @start_date.to_date + @nights.to_i
   @sleeping_type = params[:place]
   @rythm = params[:rythm]
   @passengers = params[:passengers]
   @van_type = params[:van_type]
-
+  
   # récupérer le van en fonction de passengers et van type
   @van = Van.find_van_from_criteria(@passengers, @van_type)
+  @total_price = @van.price_per_night * @nights.to_i
+  @booking = Booking.create(start_date: @start_date, end_date: @end_date, total_price: @total_price, user_id: current_user.id, van_id: @van.id)
 
   # récupérer les places en fonction du sleeping type
   @radius = 50
@@ -46,6 +49,9 @@ def search
 end
 
 def activities
+  @booking = current_user.bookings.last
+  @nights = (@booking.end_date - @booking.start_date).to_i
+  # params[:location1]
 end
 
 def search_activities
@@ -67,13 +73,11 @@ def search_activities
       @choices << @categories[index]
     end
   end
-
   @activities_selection = Activity.where(category: @choices)
 end
 
-# private
+private
 
-#   def booking_params
-#     params.require(:booking).permit(:start_date, :end_date, :total_price)
-#   end
+def booking_params
+    params.require(:booking).permit(:start_date, :end_date, :total_price)
 end
