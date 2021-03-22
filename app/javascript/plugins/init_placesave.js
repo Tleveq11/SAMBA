@@ -2,9 +2,10 @@ const initPlacesave = () => {
     // const suggestions = document.getElementById('p-suggestions');
     const selection = document.getElementById('p-selection');
     const button = document.getElementById('places-select');
-    
-    button.addEventListener("click", placeSelection );
-    
+    if (button) {
+      button.addEventListener("click", placeSelection );
+    }
+
 };
 
 const placeSelection = () => {
@@ -22,6 +23,6 @@ const placeSelection = () => {
         counter += 1
     })
     window.location.href = `http://localhost:3000/activities?${char.join('&')}`
-};   
+};
 
 export { initPlacesave };
