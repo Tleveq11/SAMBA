@@ -75,8 +75,13 @@ const initMapbox = () => {
       element.style.width = '20px';
       element.style.height = '20px';
 
-      new mapboxgl.Marker()
-      .setLngLat([marker.lng, marker.lat ])
+
+
+      new mapboxgl.Marker({
+      //color: #EAC100,
+      //draggable: true
+    })
+      .setLngLat([ marker.lng, marker.lat ])
       .setPopup(popup)
       .addTo(map);
     });
@@ -117,6 +122,7 @@ const initMapbox = () => {
     });
     const activities = JSON.parse(mapElement2.dataset.activities);
     activities.forEach((marker) => {
+
       const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
 
       const element = document.createElement('div');
@@ -130,6 +136,8 @@ const initMapbox = () => {
        color: "green",
        draggable: true
       })
+
+
       .setLngLat([ marker.lng, marker.lat ])
       .setPopup(popup)
       .addTo(map);

@@ -28,6 +28,7 @@ import "bootstrap";
 // Internal imports, e.g:
 import { initMapbox } from '../plugins/init_mapbox';
 import { initPlacesave } from "../plugins/init_placesave";
+import { initActivitysave } from "../plugins/init_activitysave";
 import { initSortable } from '../plugins/init_sortable';
 import { initSortableActivities } from '../plugins/init_sortable_activities';
 
@@ -37,4 +38,5 @@ document.addEventListener('turbolinks:load', () => {
    initSortableActivities();
    initMapbox();
    initPlacesave();
+   initActivitysave();
 });
