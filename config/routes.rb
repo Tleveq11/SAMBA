@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   get '/results', to: 'bookings#search'
   get '/activities', to: 'bookings#activities'
   get '/results_activities', to: 'bookings#search_activities'
+  get '/roadbook', to: 'bookings#roadbook'
 
 end
