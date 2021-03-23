@@ -37,7 +37,12 @@ const initMapbox = () => {
     element.style.width = '20px';
     element.style.height = '20px';
 
-      new mapboxgl.Marker()
+
+
+      new mapboxgl.Marker({
+      //color: #EAC100,
+      //draggable: true
+    })
       .setLngLat([ marker.lng, marker.lat ])
       .setPopup(popup)
       .addTo(map);
@@ -89,7 +94,10 @@ const initMapbox = () => {
     element.style.width = '40px';
     element.style.height = '40px';
 
-      new mapboxgl.Marker()
+      new mapboxgl.Marker({
+      color: "green",
+      draggable: true
+    })
       .setLngLat([ marker.lng, marker.lat ])
       .setPopup(popup)
       .addTo(map);
