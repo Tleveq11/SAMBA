@@ -145,6 +145,27 @@ const initMapbox = () => {
     fitMapToMarkers(map,markers)
     let coords = [[5.400000,43.300000]]
 
+
+// if (mapElement3) { // only build a map if there's a div#map to inject into
+// const centerLat3 = parseFloat(mapElement3.dataset.lat);
+// const centerLong3 = parseFloat(mapElement3.dataset.long);
+
+// mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
+// const map = new mapboxgl.Map({
+// container: 'map3',
+// style: 'mapbox://styles/mapbox/streets-v10',
+// // center: [centerLong, centerLat],
+// // zoom: 9
+// });
+// }
+
+
+
+
+
+
+
+
     JSON.parse(mapElement2.dataset.markers).forEach((marker) => {
       coords.push([marker.lng, marker.lat])
     })
