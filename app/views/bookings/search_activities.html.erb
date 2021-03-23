@@ -7,7 +7,7 @@
     data-lat= "<%= @departure_lat%>"
     data-long="<%= @departure_long%>"> </div>
 <%# Affichage de la liste (vide au départ) de sélection d'activités %>
-<h2 class="subtitle-green">Mes activités</h2>
+<h2 class="subtitle-green mt-3">Mes activités</h2>
 <ul id="a-selection">
     <li class="empty-activities"></li>
 </ul>
@@ -43,5 +43,6 @@
   </ul>
 
 <%# Bouton submit %>
-
-<button id="activities-select">Créer</button>
+<div class="text-center">
+  <button class="btn-samba mb-4" id="activities-select">Valider mes activités</button>
+</div>

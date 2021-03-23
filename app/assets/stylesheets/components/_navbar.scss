@@ -2,7 +2,7 @@
   justify-content: space-between;
   background-color: $white;
   box-shadow: 0 4px 12px -12px rgba(0,0,0,0.6);
-  margin: 0 -16px;
+  margin: 0 -20px;
 }
 
 .navbar-brand {
@@ -15,7 +15,7 @@
 }
 
 .btn-navbar {
-  height: 40px;
+  height: 35px;
 }
 
 .dropdown {
@@ -40,5 +40,5 @@
   z-index: 1;
   position: absolute;
   right: 16px;
-  margin: 0 -16px;
+  margin: 0 -20px;
 }
