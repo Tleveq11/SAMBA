@@ -8,10 +8,26 @@
     </div>
 
     <div class="van-card-price">
-        <p><strong><%= @van.price_per_night * @nights.to_i %>€</strong> pour <%= @nights %> nuits</p>
+        <p><strong><%= @total_price %>€</strong> pour <%= @nights %> nuits</p>
     </div>
 
     <p class="van-card-name"><%= @van.name %></p>
     <p class="van-card-passengers">Capacité: <%= @van.passengers %> personnes</p>
     <p class="van-card-description"><%= @van.description %></p>
 </div>
+
+<%# affichage de la map %>
+
+------MAP-----
+
+<%# affichage des emplacements %>
+
+<% @selected_places.each do |selection| %>
+    <%= selection.place.name %>
+<% end %>
+
+<%# affichage des activites %>
+
+<% @selected_activities.each do |selection| %>
+    <%= selection.activity.name %>
+<% end %>
