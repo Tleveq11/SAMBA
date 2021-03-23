@@ -1,0 +1,17 @@
+<h2 class="subtitle-green">Mon véhicule</h2>
+
+<%# affichage du van sélectionné %>
+
+<div class="card-van">
+    <div>
+        <%= cl_image_tag @van.photo.key, class: "card-van-img" %>
+    </div>
+
+    <div class="van-card-price">
+        <p><strong><%= @van.price_per_night * @nights.to_i %>€</strong> pour <%= @nights %> nuits</p>
+    </div>
+
+    <p class="van-card-name"><%= @van.name %></p>
+    <p class="van-card-passengers">Capacité: <%= @van.passengers %> personnes</p>
+    <p class="van-card-description"><%= @van.description %></p>
+</div>
