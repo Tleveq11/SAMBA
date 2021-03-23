@@ -13,6 +13,7 @@
 
     <p class="van-card-name"><%= @van.name %></p>
     <p class="van-card-passengers">Capacité: <%= @van.passengers %> personnes</p>
+    <p class="van-card-date">Du <%= @start %> au <%= @end %> </p>
     <p class="van-card-description"><%= @van.description %></p>
 </div>
 
@@ -21,13 +22,53 @@
 ------MAP-----
 
 <%# affichage des emplacements %>
-
-<% @selected_places.each do |selection| %>
-    <%= selection.place.name %>
+<h2 class="subtitle-green">Mes emplacements</h2>
+  <% @selected_places.each do |selection| %>
+    <div class="card-place">
+      <%= cl_image_tag selection.place.photo.key, class: "card-place-img" %>
+        <div class="card-place-infos">
+          <p class="place-card-name"><%= selection.place.name %></p>
+          <p class="place-card-address"><%= selection.place.address %></p>
+          <p class="place-card-description"><%= selection.place.description.first(80) %>...</p>
+            <div class="d-flex justify-content-end w-100">
+              <%= image_tag "eye-samba.svg", class:"modal-button", data:{toggle: "modal", target:"#place-#{selection.place.id}"} %>
+            </div>
+              <div class="modal fade" id="place-<%= selection.place.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                      <%= cl_image_tag selection.place.photo.key, class: "modal-img" %>
+                  <div class="modal-content">
+                    <p class="modal-title" ><%= selection.place.name %></p>
+                    <p class="place-card-address"><%= selection.place.address %></p>
+                    <p class="place-card-description"><%= selection.place.description %></p>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
 <% end %>
 
 <%# affichage des activites %>
-
-<% @selected_activities.each do |selection| %>
-    <%= selection.activity.name %>
-<% end %>
+<h2 class="subtitle-green">Mes activités</h2>
+  <% @selected_activities.each do |selection| %>
+    <div class="card-activity">
+      <%= cl_image_tag selection.activity.photo.key, class: "card-activity-img" %>
+        <div class="card-activity-infos">
+          <p class="activity-card-name"><%= selection.activity.name %></p>
+          <p class="activity-card-address"><%= selection.activity.address %></p>
+          <p class="activity-card-description"><%= selection.activity.description.first(80) %>...</p>
+            <div class="d-flex justify-content-end w-100">
+              <%= image_tag "eye-samba.svg", class:"modal-button", data:{toggle: "modal", target:"#activity-#{selection.activity.id}"} %>
+            </div>
+              <div class="modal fade" id="activity-<%= selection.activity.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                      <%= cl_image_tag selection.activity.photo.key, class: "modal-img" %>
+                      <div class="modal-content">
+                        <p class="modal-title" ><%= selection.activity.name %></p>
+                        <p class="activity-card-address"><%= selection.activity.address %></p>
+                        <p class="activity-card-description"><%= selection.activity.description %></p>
+                      </div>
+                </div>
+              </div>
+        </div>
+    </div>
+  <% end %>
