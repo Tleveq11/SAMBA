@@ -28,7 +28,7 @@
     data-long="<%= @departure_long%>"> </div>
 
 <%# Affichage de la liste (vide au départ) de sélection %>
-<h2 class="subtitle-green">Ma sélection</h2>
+<h2 class="subtitle-green mt-3">Ma sélection</h2>
 <ul id="p-selection">
   <% @nights.to_i.times do %>
     <li class="first">Nuit <%= @counter += 1 %></li>
@@ -37,7 +37,7 @@
 </ul>
 <%# Affichage des suggestions d'emplacements %>
     <br>
-<h2 class="subtitle-green">Mes suggestions</h2>
+<h2 class="subtitle-green mt-n3">Mes suggestions</h2>
   <ul id="p-suggestions">
     <% @places_selection.each do |place| %>
       <li class="swap" data-place-id="<%=place.id%>">
@@ -68,8 +68,9 @@
 </div>
 
 <%# Bouton submit %>
-
-<button id="places-select">Créer</button>
+<div class="text-center">
+  <button class="btn-samba mb-4" id="places-select">Valider mes emplacements</button>
+</div>
 
 
 
