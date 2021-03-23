@@ -110,7 +110,7 @@ def search_activities
       infoWindow: render_to_string(partial: "info_window2", locals: { activity: activity })
     }
   end
- 
+
 end
 
 def roadbook
@@ -119,6 +119,8 @@ def roadbook
   @van = @booking.van
   @total_price = @booking.total_price
   @nights = (@booking.end_date - @booking.start_date).to_i
+  @start = Date.parse(@booking.start_date.to_s).strftime("%d/%m/%Y")
+  @end = Date.parse(@booking.end_date.to_s).strftime("%d/%m/%Y")
 
   # créer des instances de BookingActivity
   # @booking = current_user.bookings.last
