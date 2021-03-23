@@ -18,7 +18,6 @@ const activitySelection = () => {
         selectedActivities.forEach((activity) => {
             arrayActivities.push(activity.dataset.activitiesId);
         });
-        debugger
         let counter = 1
         let char = []
         const url = arrayActivities.forEach((activity) => {

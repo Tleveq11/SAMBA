@@ -70,55 +70,82 @@ end
 
 def search_activities
 
-#mapbox
-@booking = current_user.bookings.last
-@places = @booking.places
-@departure_lat = (43.300000).to_s
-@departure_long = (5.4).to_s
-  @markers = @places.map do |place|
-    {
-      lat: place.latitude,
-      lng: place.longitude,
-      infoWindow: render_to_string(partial: "info_window", locals: { place: place })
+  #mapbox
+  @booking = current_user.bookings.last
+  @places = @booking.places
+  @departure_lat = (43.300000).to_s
+  @departure_long = (5.4).to_s
+    @markers = @places.map do |place|
+      {
+        lat: place.latitude,
+        lng: place.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { place: place })
+      }
+    end
 
-    }
-  end
-
-
-    # récupérer les places en fonction de category
+  # récupérer les places en fonction de category
   @params = [params[:category_randonnée],
-             params[:category_baignade],
-             params[:category_villes],
-             params[:category_culture],
-             params[:category_détente],
-             params[:category_animaux],
-             params[:category_familial],
-             params[:category_sensations],
-             params[:category_gastronomie]]
+              params[:category_baignade],
+              params[:category_villes],
+              params[:category_culture],
+              params[:category_détente],
+              params[:category_animaux],
+              params[:category_familial],
+              params[:category_sensations],
+              params[:category_gastronomie]]
 
   @categories = ["randonnée", "balnéaire", "villages", "culture", "détente", "animaux", "familial", "sensations", "gastronomie"]
   @choices = []
   @params.each_with_index do |param, index|
     if param == "1"
       @choices << @categories[index]
-    end
+     end
   end
+
   @activities_selection = Activity.where(category: @choices)
   @activities_markers = @activities_selection.map do |activity|
     {
       lat: activity.latitude,
       lng: activity.longitude,
       infoWindow: render_to_string(partial: "info_window2", locals: { activity: activity })
-
     }
   end
+ 
 end
 
 def roadbook
+  # variables permettant d'afficher le van correspondant au booking
+  @booking = current_user.bookings.last
+  @van = @booking.van
+  @total_price = @booking.total_price
+  @nights = (@booking.end_date - @booking.start_date).to_i
+
+  # créer des instances de BookingActivity
+  # @booking = current_user.bookings.last
+  @params = [params[:activity1],
+              params[:activity2],
+              params[:activity3],
+              params[:activity4],
+              params[:activity5],
+              params[:activity6]]
+  @saved_params = []
+  @params.each_with_index do |param, index|
+    if param
+      @saved_params << param
+      # return => ["38", "40", "41", "39"]
+    end
+  end
+  @saved_params.each do |param|
+    BookingActivity.create(activity_id: param, booking_id: @booking.id)
+  end
+
+  #afficher les emplacements
+  @selected_places = @booking.booking_places
+
+  #afficher les activities
+  @selected_activities = @booking.booking_activities
+
 end
-
-
-
 
 
 private
