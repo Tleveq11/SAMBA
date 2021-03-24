@@ -2,7 +2,7 @@
     <% if user_signed_in? %>
       <li class="dropdown">
         <img src="https://res.cloudinary.com/df0stqosw/image/upload/v1616068410/Samba/user_flqxzl.png" class="btn-navbar" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        
+
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
           <%= link_to "Se déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         </div>
@@ -74,7 +74,7 @@
             </div>
         </div>
 
-        
+
         <div class="radio-group">
             <div class="radio-option">
                 <%= f.radio_button :rythm, "relax", class: "radio" %>
@@ -110,7 +110,7 @@
                 <%= f.label :passengers_6, "5-6 pers." %>
             </div>
         </div>
-        
+
         <div class="radio-group">
             <div class="radio-option">
                 <%= f.radio_button :van_type, "vintage", class: "radio" %>
