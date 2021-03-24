@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/activities', to: 'bookings#activities'
   get '/results_activities', to: 'bookings#search_activities'
   get '/roadbook', to: 'bookings#roadbook'
+  get '/roadbook_confirmed', to: 'bookings#roadbook_confirmed'
 
   resources :orders, only: [:show, :create] do
     resources :payments, only: :new

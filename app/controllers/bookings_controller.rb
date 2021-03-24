@@ -167,6 +167,10 @@ end
     get_start_point
   end
 
+  def roadbook_confirmed
+    @bookings = current_user.bookings.all
+  end
+
 
   private
 
