@@ -180,7 +180,7 @@ place11 = Place.new(name: "Chez Joseph et Irène", address:"1 Chemin des Muraill
 place11.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
 file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1615998250/claire_mvlemh.jpg')
-place12 = Place.new(name: "Chez Bérangère, address:"2-20 Rue des Cordonniers, 13500 Martigues", sleeping_type:"authentique", description:"Cadre idyllique sous les pins méditerranéens, à deux pas de la mer turquoise de la côte bleue.Emplacements à l'ombre de grands pins centenaires.Accès permanent aux sanitaires de la maison.")
+place12 = Place.new(name: "Chez Bérangère", address:"2-20 Rue des Cordonniers, 13500 Martigues", sleeping_type:"authentique", description:"Cadre idyllique sous les pins méditerranéens, à deux pas de la mer turquoise de la côte bleue.Emplacements à l'ombre de grands pins centenaires.Accès permanent aux sanitaires de la maison.")
 place12.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
 file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1615993390/routeok_vgw5au.jpg')
