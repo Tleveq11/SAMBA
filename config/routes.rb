@@ -10,4 +10,8 @@ Rails.application.routes.draw do
   get '/results_activities', to: 'bookings#search_activities'
   get '/roadbook', to: 'bookings#roadbook'
 
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: :new
+  end
+
 end

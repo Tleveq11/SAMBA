@@ -11,4 +11,6 @@ class Booking < ApplicationRecord
 
   validates :start_date, :end_date, :total_price, presence: true
 
+  monetize :price_cents
+
 end
