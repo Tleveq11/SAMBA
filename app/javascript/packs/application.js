@@ -31,6 +31,7 @@ import { initPlacesave } from "../plugins/init_placesave";
 import { initActivitysave } from "../plugins/init_activitysave";
 import { initSortable } from '../plugins/init_sortable';
 import { initSortableActivities } from '../plugins/init_sortable_activities';
+import { initFooterFix } from "../plugins/init_footer_fix";
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -39,4 +40,5 @@ document.addEventListener('turbolinks:load', () => {
    initMapbox();
    initPlacesave();
    initActivitysave();
+   initFooterFix();
 });
