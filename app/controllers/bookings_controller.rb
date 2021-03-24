@@ -43,117 +43,145 @@ def search
 
     }
   end
+  
+  get_start_point
   @counter = 0
 end
 
-def activities
-  @booking = current_user.bookings.last
-  @nights = (@booking.end_date - @booking.start_date).to_i
-  @counter = 1
-  @params = [params[:location1],
-              params[:location2],
-              params[:location3],
-              params[:location4],
-              params[:location5],
-              params[:location6]]
-  @saved_params = []
-  @params.each_with_index do |param, index|
-    if param
-      @saved_params << param
-      # return => ["38", "40", "41", "39"]
+
+  def activities
+    @booking = current_user.bookings.last
+    @nights = (@booking.end_date - @booking.start_date).to_i
+    @counter = 1
+    @params = [params[:location1],
+                params[:location2],
+                params[:location3],
+                params[:location4],
+                params[:location5],
+                params[:location6]]
+    @saved_params = []
+    @params.each_with_index do |param, index|
+      if param
+        @saved_params << param
+        # return => ["38", "40", "41", "39"]
+      end
+    end
+    @saved_params.each do |param|
+      BookingPlace.create(place_id: param, booking_id: @booking.id)
     end
   end
-  @saved_params.each do |param|
-    BookingPlace.create(place_id: param, booking_id: @booking.id)
-  end
-end
 
-def search_activities
+  def search_activities
 
-  #mapbox
-  @booking = current_user.bookings.last
-  @places = @booking.places
-  @departure_lat = (43.300000).to_s
-  @departure_long = (5.4).to_s
-    @markers = @places.map do |place|
+    #mapbox
+    @booking = current_user.bookings.last
+    @places = @booking.places
+    @departure_lat = (43.300000).to_s
+    @departure_long = (5.4).to_s
+      @markers = @places.map do |place|
+        {
+          lat: place.latitude,
+          lng: place.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { place: place })
+        }
+      end
+
+    # récupérer les places en fonction de category
+    @params = [params[:category_randonnée],
+                params[:category_baignade],
+                params[:category_villes],
+                params[:category_culture],
+                params[:category_détente],
+                params[:category_animaux],
+                params[:category_familial],
+                params[:category_sensations],
+                params[:category_gastronomie]]
+
+    @categories = ["randonnée", "balnéaire", "villages", "culture", "détente", "animaux", "familial", "sensations", "gastronomie"]
+    @choices = []
+    @params.each_with_index do |param, index|
+      if param == "1"
+        @choices << @categories[index]
+       end
+    end
+
+    @activities_selection = Activity.where(category: @choices)
+    @activities_markers = @activities_selection.map do |activity|
       {
-        lat: place.latitude,
-        lng: place.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { place: place })
+        lat: activity.latitude,
+        lng: activity.longitude,
+        infoWindow: render_to_string(partial: "info_window2", locals: { activity: activity })
+      }
+    end
+    get_start_point
+  end
+
+  def roadbook
+    # variables permettant d'afficher le van correspondant au booking
+    @booking = current_user.bookings.last
+    @van = @booking.van
+    @total_price = @booking.total_price
+    @nights = (@booking.end_date - @booking.start_date).to_i
+    @start = Date.parse(@booking.start_date.to_s).strftime("%d/%m/%Y")
+    @end = Date.parse(@booking.end_date.to_s).strftime("%d/%m/%Y")
+
+    # créer des instances de BookingActivity
+    # @booking = current_user.bookings.last
+    @params = [params[:activity1],
+                params[:activity2],
+                params[:activity3],
+                params[:activity4],
+                params[:activity5],
+                params[:activity6]]
+    @saved_params = []
+    @params.each_with_index do |param, index|
+      if param
+        @saved_params << param
+        # return => ["38", "40", "41", "39"]
+      end
+    end
+    @saved_params.each do |param|
+      BookingActivity.create(activity_id: param, booking_id: @booking.id)
+    end
+
+    #afficher les emplacements
+    @selected_places = @booking.booking_places
+    @places_markers = @selected_places.map do |bp|
+      {
+        lat: bp.place.latitude,
+        lng: bp.place.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { place: bp.place })
       }
     end
 
-  # récupérer les places en fonction de category
-  @params = [params[:category_randonnée],
-              params[:category_baignade],
-              params[:category_villes],
-              params[:category_culture],
-              params[:category_détente],
-              params[:category_animaux],
-              params[:category_familial],
-              params[:category_sensations],
-              params[:category_gastronomie]]
-
-  @categories = ["randonnée", "balnéaire", "villages", "culture", "détente", "animaux", "familial", "sensations", "gastronomie"]
-  @choices = []
-  @params.each_with_index do |param, index|
-    if param == "1"
-      @choices << @categories[index]
-     end
-  end
-
-  @activities_selection = Activity.where(category: @choices)
-  @activities_markers = @activities_selection.map do |activity|
-    {
-      lat: activity.latitude,
-      lng: activity.longitude,
-      infoWindow: render_to_string(partial: "info_window2", locals: { activity: activity })
-    }
-  end
-
-end
-
-def roadbook
-  # variables permettant d'afficher le van correspondant au booking
-  @booking = current_user.bookings.last
-  @van = @booking.van
-  @total_price = @booking.total_price
-  @nights = (@booking.end_date - @booking.start_date).to_i
-  @start = Date.parse(@booking.start_date.to_s).strftime("%d/%m/%Y")
-  @end = Date.parse(@booking.end_date.to_s).strftime("%d/%m/%Y")
-
-  # créer des instances de BookingActivity
-  # @booking = current_user.bookings.last
-  @params = [params[:activity1],
-              params[:activity2],
-              params[:activity3],
-              params[:activity4],
-              params[:activity5],
-              params[:activity6]]
-  @saved_params = []
-  @params.each_with_index do |param, index|
-    if param
-      @saved_params << param
-      # return => ["38", "40", "41", "39"]
+    #afficher les activities
+    @selected_activities = @booking.booking_activities
+    @activities_markers = @selected_activities.map do |ba|
+      {
+        lat: ba.activity.latitude,
+        lng: ba.activity.longitude,
+        infoWindow: render_to_string(partial: "info_window2", locals: { activity: ba.activity })
+      }
     end
+
+    get_start_point
   end
-  @saved_params.each do |param|
-    BookingActivity.create(activity_id: param, booking_id: @booking.id)
-  end
-
-  #afficher les emplacements
-  @selected_places = @booking.booking_places
-
-  #afficher les activities
-  @selected_activities = @booking.booking_activities
-
-end
 
 
-private
+  private
+
 
 def booking_params
     params.require(:booking).permit(:start_date, :end_date, :total_price, :price)
 end
 
+
+  def get_start_point
+    @start_point = [
+      {
+        lat: 43.296482,
+        lng: 5.36978
+      }
+    ]
+  end
 end
