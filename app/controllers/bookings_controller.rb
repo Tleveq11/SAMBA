@@ -18,7 +18,7 @@ def search
   # récupérer le van en fonction de passengers et van type
   @van = Van.find_van_from_criteria(@passengers, @van_type)
   @total_price = @van.price_per_night * @nights.to_i
-  @booking = Booking.create(start_date: @start_date, end_date: @end_date, total_price: @total_price, user_id: current_user.id, van_id: @van.id)
+  @booking = Booking.create(start_date: @start_date, end_date: @end_date, total_price: @total_price, user_id: current_user.id, van_id: @van.id, price: @total_price)
 
   # récupérer les places en fonction du sleeping type
   @radius = 50
@@ -153,7 +153,7 @@ end
 private
 
 def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :total_price)
+    params.require(:booking).permit(:start_date, :end_date, :total_price, :price)
 end
 
 end
