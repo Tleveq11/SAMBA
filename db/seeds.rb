@@ -105,6 +105,9 @@ vans = [
   }
 ]
 
+BookingPlace.destroy_all
+BookingActivity.destroy_all
+Booking.destroy_all
 Van.destroy_all
 User.destroy_all
 Place.destroy_all
@@ -165,19 +168,19 @@ place8 = Place.new(name: "Chez Laurent", address:"Chemin de Salernes Salernes", 
 place8.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
 file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1615996605/ChezBera_nlf1bx.jpg')
-place9 = Place.new(name: "Chez Bérangère", address:"59 Rue Paul Cézanne, 04100 Manosque", sleeping_type:"authentique", description:"Au milieu de la campagne provençale, à 3 km du village, pleine nature, vue imprenable, calme assuré....Parfait pour les amoureux de la nature ! Vous serez au milieu des champs de lavande, dans un cadre exceptionnel, avec la tranquillité et le bon air de Provence, à 100 mètres de la route départementale.")
+place9 = Place.new(name: "Chez Claire et Maxime", address:"59 Rue Paul Cézanne, 04100 Manosque", sleeping_type:"authentique", description:"Au milieu de la campagne provençale, à 3 km du village, pleine nature, vue imprenable, calme assuré....Parfait pour les amoureux de la nature ! Vous serez au milieu des champs de lavande, dans un cadre exceptionnel, avec la tranquillité et le bon air de Provence, à 100 mètres de la route départementale.")
 place9.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
 file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1615997037/chezjojo_pbdikz.jpg')
-place10 = Place.new(name: "Chez Joseph et Irène", address:"56 Rue Paul Arène, 84800 L'Isle-sur-la-Sorgue", sleeping_type:"authentique", description:"Bienvenue chez nous! Nous vous recevrons au chant des cigales en pleine campagne, au calme et en pleine nature, à quelques kilomètres de l'Isle sur la sorgue.")
+place10 = Place.new(name: "Chez Henri et Lauriane", address:"56 Rue Paul Arène, 84800 L'Isle-sur-la-Sorgue", sleeping_type:"authentique", description:"Bienvenue chez nous! Nous vous recevrons au chant des cigales en pleine campagne, au calme et en pleine nature, à quelques kilomètres de l'Isle sur la sorgue.")
 place10.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
 file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1615997582/chezlauriane_agfwja.jpg')
-place11 = Place.new(name: "Chez Henri et Lauriane", address:"1 Chemin des Muraillettes, 13200 Arles", sleeping_type:"authentique", description:"Entouré de nature, bordé de platanes, au calme entre vignes-prairies et chevaux.Le Domaine étant vaste, le choix de l'endroit de l'installation est grand : à l'ombre ou non, éloigné ou non des sanitaires et des équipements de détente.Dans le Domaine : piscine, beach volley, pétanque, ping-pong, trampoline, balançoire, de ballons, trampoline.")
+place11 = Place.new(name: "Chez Joseph et Irène", address:"1 Chemin des Muraillettes, 13200 Arles", sleeping_type:"authentique", description:"Entouré de nature, bordé de platanes, au calme entre vignes-prairies et chevaux.Le Domaine étant vaste, le choix de l'endroit de l'installation est grand : à l'ombre ou non, éloigné ou non des sanitaires et des équipements de détente.Dans le Domaine : piscine, beach volley, pétanque, ping-pong, trampoline, balançoire, de ballons, trampoline.")
 place11.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
 file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1615998250/claire_mvlemh.jpg')
-place12 = Place.new(name: "Chez Claire et Maxime", address:"2-20 Rue des Cordonniers, 13500 Martigues", sleeping_type:"authentique", description:"Cadre idyllique sous les pins méditerranéens, à deux pas de la mer turquoise de la côte bleue.Emplacements à l'ombre de grands pins centenaires.Accès permanent aux sanitaires de la maison.")
+place12 = Place.new(name: "Chez Bérangère, address:"2-20 Rue des Cordonniers, 13500 Martigues", sleeping_type:"authentique", description:"Cadre idyllique sous les pins méditerranéens, à deux pas de la mer turquoise de la côte bleue.Emplacements à l'ombre de grands pins centenaires.Accès permanent aux sanitaires de la maison.")
 place12.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
 file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1615993390/routeok_vgw5au.jpg')
@@ -238,11 +241,39 @@ activity5 = Activity.new(name: "Gémenos", address:"Gémenos", category:"village
 activity5.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
 file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1616081257/saintcyrsurmer_yrwyyp.jpg')
-activity6 = Activity.new(name: "Saint-cyr-sur-mer", address:"saint-cyr-sur-mer", category:"villages", description:"Largement ouvert sur la baie des Lecques, Saint Cyr sur Mer fait partie des musts de la Côte Provençale avec ses deux hameaux Les Lecques et La Madrague.")
+activity6 = Activity.new(name: "Saint-Cyr-sur-Mer", address:"Saint-Cyr-sur-Mer", category:"villages", description:"Largement ouvert sur la baie des Lecques, Saint Cyr sur Mer fait partie des musts de la Côte Provençale avec ses deux hameaux Les Lecques et La Madrague.")
 activity6.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
+file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1616577835/fontainedevaucluse_g9lprs.jpg')
+activity7 = Activity.new(name: "Fontaine de Vaucluse", address:"Fontaine de Vaucluse", category:"villages", description:"Fontaine de Vaucluse est vraisemblablement l'un des sites naturels le plus visité du Vaucluse : en période estivale, les rues de Fontaine sont littéralement envahies par la foule et les magasins de souvenirs pris d'assaut...Pour pouvoir flâner tranquillement dans les charmantes ruelles du village essayez d'être matinal. Ce succès tient essentiellement à la très impressionnante source qui jaillit au pied d'une falaise de 230m de haut.")
+activity7.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
 
-[activity1, activity2, activity3, activity4, activity5, activity6].each do |activity_instance|
+file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1616577834/gordes_heunzh.jpg')
+activity8 = Activity.new(name: "Gordes", address:"Gordes", category:"villages", description:"L’un des plus beaux villages de France Gordes est un village perché sur son rocher, sublimé par les siècles et le travail de l’homme. Richesse architecturale et culturelle, histoire et panorama à couper le souffle font de ce village incontournable, un fleuron de la Provence. Gordes, classé parmi les plus beaux villages de France occupe une place à part. C'est un village que l'on voit de très loin et quand on arrive à ses pieds, on a le sentiment qu'il veille sur la vallée depuis toujours, tant il fait corps avec le plateau qu'il épouse puissamment, fièrement.")
+activity8.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
+
+file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1616577834/lislesurlasorgue_kfy1qs.jpg')
+activity9 = Activity.new(name: "L'Isle-sur-la-Sorgue", address:"L'Isle-sur-la-Sorgue", category:"villages", description:"L'Isle sur la Sorgue fait partie des musts incontournables de Provence. Les chineurs, amateurs de beaux objets, brocantes et galeries d'art seront comblés, il y a en effet près de 300 antiquaires dans cette petite ville ! Colorée de vert et d'eau, cette ville-île posée au pied du plateau du Vaucluse, dans la plaine du Comtat Venaissin, est traversée de plusieurs canaux alimentés par la Sorgue. La rivière étend ses deux longs bras autour de la ville comme pour mieux l'étreindre.")
+activity9.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
+
+file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1616577835/manosque_ajkzes.jpg')
+activity10 = Activity.new(name: "Manosque", address:"Manosque", category:"villages", description:"En vous promenant dans Manosque vous découvrirez une cité millénaire au riche passé, où chaque époque a laissé son empreinte et son style. La vieille ville, en forme de poire, offre de très jolies petites places, bordées de belles demeures. Pour mieux admirer Manosque, montez sur la colline du Mont d'Or (3km aller-retour), vous y découvrirez la beauté de la nature environnante et un magnifique panorama sur le Luberon, La Sainte Baume, le Haut-Var avec le Mont d'Aiguines... et même les premiers sommets des Alpes.")
+activity10.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
+
+file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1616577834/balcons_sm8gls.jpg')
+activity11 = Activity.new(name: "Les Balcons de Manosque", address:"24 Place Marcel Pagnol 04100 Manosque", category:"randonnée", description:"Les Balcons de Manosque est le titre d'une série de promenades du Comité du Patrimoine Manosquin (CPM) qui permettent de découvrir le patrimoine de la ville hors les murs. Ce premier circuit suit globalement le chemin de l'eau de la Thomassine, une des sources qui alimentait Manosque. Les restes d'un aqueduc, une source sulfureuse, un pont du XVe siècle, des empreintes d'animaux datant de 30 millions d'années, une mine d'asphalte et une mine d'eau sont au programme.")
+activity11.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
+
+file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1616577834/LesVannades_jp1lvt.png')
+activity12 = Activity.new(name: "Lac les Vannades", address:"Lac les Vannades 04100 Manosque", category:"balnéaire", description:"Le plan d'eau des Vannades est un havre de paix et de fraicheur idéal pour la pratique des activités sportives et de loisirs. Il vous propose une baignade surveillée avec rampe d'accès à l'eau pour les personnes handicapées, des aires de pique-nique, un espace de restauration, un mini-golf ainsi que tous les équipements pour les pratiques encadrées de la voile et de l'aviron. Cet espace de loisirs de 15 hectares est situé à seulement 5km du centre ville de Manosque.")
+activity12.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
+
+file = URI.open('https://res.cloudinary.com/dskkiywgj/image/upload/v1616577834/lacdesbuissonnades_ydlq5l.jpg')
+activity13 = Activity.new(name: "Lacs des Buissonnades", address:"Chemin des buissonnades 04700 Oraison", category:"balnéaire", description:"Dans un cadre de nature préservée, les lacs des Buissonnades vous offrent une diversité végétale et un lieu de promenade idéal. Vous découvrirez, en toutes saisons, une faune et flore particulières liées à l'eau. Baignades surveillées en été, boulodrome, terrain de volley ball, tables de ping-pong, jeux couvets pour enfants, location de bateaux à pédales, de stand up paddle, de canoë kayak, planche à voile, coaching sportif, circuit training etc.")
+activity13.photo.attach(io: file, filename: 'nes', content_type: 'image/jpg')
+
+
+[activity1, activity2, activity3, activity4, activity5, activity6, activity7, activity8, activity9, activity10, activity11, activity12, activity13].each do |activity_instance|
    if activity_instance.save
      puts "Created #{activity_instance.name}"
    end
