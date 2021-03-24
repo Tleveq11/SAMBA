@@ -206,3 +206,31 @@ li.first + li.empty {
   height: 120px;
   border: 1px solid lightgray;
 }
+
+// roadbook
+
+.roadbook-small > img {
+  height: 80px;
+  width: 120px;
+  object-fit: cover;
+}
+
+.roadbook-small > p {
+  font-size: 12px;
+  padding-left: 10px;
+  margin: 0;
+}
+
+.roadbook-small {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 5px 0;
+  padding-left: 5px;
+}
+
+.roadbook {
+  border: 1px solid lightgray;
+  margin: 10px 0;
+}
+
