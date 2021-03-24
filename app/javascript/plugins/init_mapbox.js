@@ -5,7 +5,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
   markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-  map.fitBounds(bounds, { padding: 70, duration: 500 });
+  map.fitBounds(bounds, { padding: 100, duration: 500 });
 };
 const accessToken = 'pk.eyJ1IjoidGxldmVxMTEiLCJhIjoiY2tsa3Exb2M5MHBuaTJwb2JodmFtczBteSJ9.bH8CBRoMSoXeonilEJm5qg'
 
@@ -46,132 +46,73 @@ const displayJourney = (map, coords) => {
   });
 };
 
+const addCustomMarkersToMap = (markers, map, color) => {
+  JSON.parse(markers).forEach((marker) => {
+    const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+
+    const element = document.createElement('div');
+    element.className = 'marker';
+    element.style.backgroundImage = `url('${marker.image_url}')`;
+    element.style.backgroundSize = 'contain';
+    element.style.width = '20px';
+    element.style.height = '20px';
+    const markerStyle = {}
+    if (color) {
+      markerStyle.color = color;
+    }
+    new mapboxgl.Marker(markerStyle)
+    .setLngLat([ marker.lng, marker.lat ])
+    .setPopup(popup)
+    .addTo(map);
+  });
+}
+
 const initMapbox = () => {
   const mapElement = document.getElementById('map');
-  const mapElement2 = document.getElementById('map2');
 
-
-  if (mapElement) { // only build a map if there's a div#map to inject into
-    const centerLat = parseFloat(mapElement.dataset.lat);
-    const centerLong = parseFloat(mapElement.dataset.long);
-
-   // map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken, mapboxgl: mapboxgl }));
-
+  if (mapElement) {
+    // CREATE MAP
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
     const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v10',
-    // center: [centerLong, centerLat],
-    // zoom: 9
     });
-    const markers = JSON.parse(mapElement.dataset.markers);
-    markers.forEach((marker) => {
-      const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+    // IF START ADD START
+    if(JSON.parse(mapElement.dataset.start).length >= 0) {
+      addCustomMarkersToMap(mapElement.dataset.start, map, "red")
+    }
+    // IF PLACES ADD PLACES
+    if(JSON.parse(mapElement.dataset.places).length >= 0) {
+      addCustomMarkersToMap(mapElement.dataset.places, map)
+    }
+    // IF ACTIVITIES ADD ACTIVITIES
+    if(JSON.parse(mapElement.dataset.activities).length >= 0) {
+      addCustomMarkersToMap(mapElement.dataset.activities, map, "green")
+    }
+    // FIT TO ALL MARKERS
+    const allMarkers = [
+      ...JSON.parse(mapElement.dataset.places),
+      ...JSON.parse(mapElement.dataset.activities),
+      ...JSON.parse(mapElement.dataset.start)
+    ];
+    fitMapToMarkers(map, allMarkers);
 
-      const element = document.createElement('div');
-      element.className = 'marker';
-      element.style.backgroundImage = `url('${marker.image_url}')`;
-      element.style.backgroundSize = 'contain';
-      element.style.width = '20px';
-      element.style.height = '20px';
-
-
-
-      new mapboxgl.Marker({
-      //color: #EAC100,
-      //draggable: true
-    })
-      .setLngLat([ marker.lng, marker.lat ])
-      .setPopup(popup)
-      .addTo(map);
-    });
-    fitMapToMarkers(map,markers)
-  }
-
-
-  if (mapElement2) { // only build a map if there's a div#map to inject into
-    const centerLat2 = parseFloat(mapElement2.dataset.lat);
-    const centerLong2 = parseFloat(mapElement2.dataset.long);
-
-   // map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken, mapboxgl: mapboxgl }));
-
-// new map
-
-    mapboxgl.accessToken = mapElement2.dataset.mapboxApiKey;
-    const map = new mapboxgl.Map({
-      container: 'map2',
-      style: 'mapbox://styles/mapbox/streets-v10',
-    // center: [centerLong, centerLat],
-    // zoom: 9
-    });
-    const markers = JSON.parse(mapElement2.dataset.markers);
-    markers.forEach((marker) => {
-      const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
-
-      const element = document.createElement('div');
-      element.className = 'marker';
-      element.style.backgroundImage = `url('${marker.image_url}')`;
-      element.style.backgroundSize = 'contain';
-      element.style.width = '20px';
-      element.style.height = '20px';
-
-      new mapboxgl.Marker()
-      .setLngLat([ marker.lng, marker.lat ])
-      .setPopup(popup)
-      .addTo(map);
-    });
-    const activities = JSON.parse(mapElement2.dataset.activities);
-    activities.forEach((marker) => {
-
-      const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
-
-      const element = document.createElement('div');
-      element.className = 'marker';
-      element.style.backgroundImage = `url('${marker.image_url}')`;
-      element.style.backgroundSize = 'contain';
-      element.style.width = '40px';
-      element.style.height = '40px';
-
-      new mapboxgl.Marker({
-       color: "green",
-       draggable: true
+    // TRACING
+    if (mapElement.dataset.trace === "true") {
+      let coords = [];
+      if (mapElement.dataset.start) {
+        const point = JSON.parse(mapElement.dataset.start)[0]
+        coords.push([point.lng, point.lat])
+      }
+      JSON.parse(mapElement.dataset.places).forEach((marker) => {
+        coords.push([marker.lng, marker.lat])
       })
-
-
-      .setLngLat([ marker.lng, marker.lat ])
-      .setPopup(popup)
-      .addTo(map);
-    });
-    fitMapToMarkers(map,markers)
-    let coords = [[5.400000,43.300000]]
-
-
-// if (mapElement3) { // only build a map if there's a div#map to inject into
-// const centerLat3 = parseFloat(mapElement3.dataset.lat);
-// const centerLong3 = parseFloat(mapElement3.dataset.long);
-
-// mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
-// const map = new mapboxgl.Map({
-// container: 'map3',
-// style: 'mapbox://styles/mapbox/streets-v10',
-// // center: [centerLong, centerLat],
-// // zoom: 9
-// });
-// }
-
-
-
-
-
-
-
-
-    JSON.parse(mapElement2.dataset.markers).forEach((marker) => {
-      coords.push([marker.lng, marker.lat])
-    })
-    coords.push([5.400000,43.300000])
-console.log(coords)
-    displayJourney(map, coords)
+      if (mapElement.dataset.start) {
+        coords.push([5.400000,43.300000])
+      }
+      console.log(coords)
+      displayJourney(map, coords)
+    }
   }
 }
 

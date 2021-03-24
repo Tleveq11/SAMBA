@@ -22,10 +22,11 @@
 
 <div id="map"
     style="width: 100%; height: 400px;"
-    data-markers="<%= @markers.to_json %>"
+    data-places="<%= @markers.to_json %>"
+    data-activities="[]"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-    data-lat= "<%= @departure_lat%>"
-    data-long="<%= @departure_long%>"> </div>
+    data-start="<%= @start_point.to_json %>">
+</div>
 
 <%# Affichage de la liste (vide au départ) de sélection %>
 <h2 class="subtitle-green mt-3">Ma sélection</h2>
