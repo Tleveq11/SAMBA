@@ -1,10 +1,14 @@
 
 
-    <h2 class="subtitle-green">Votre trip est confirmé!</h2>
-    <p>Nous venons d'envoyer un email à <%= current_user.email %> pour vous donner les détails pratiques</p>
-    <p>Merci pour votre achat!<p>
+    <h2 class="subtitle-green mt-5 mb-4">Votre séjour en van est confirmé!</h2>
+    <p>Nous venons d'envoyer un email à <%= current_user.email %> pour vous donner les détails pratiques.</p>
+    <p>Samba vous remercie!<p>
 
-    <div class="text-center">
+    <div class="text-center my-4">
         <%= link_to 'Accéder à mes roadbooks', roadbook_confirmed_path, class: 'btn-samba py-2', id: 'roadbook-btn' %>
     </div>
+
+    <div id="space"></div>
+
+    
 
