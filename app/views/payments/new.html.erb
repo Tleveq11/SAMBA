@@ -3,12 +3,13 @@
 
 
     <p class="van-card-name"> Location du van <%= @order.booking.van.name %></p>
-    <p class="van-card-passengers">Capacité: <%= @order.booking.van.passengers %> personnes</p>
+    <p class="van-card-passengers" id="passengers-roadbook">Capacité: <%= @order.booking.van.passengers %> personnes</p>
     <p class="van-card-date">Du <%= @start %> au <%= @end %> </p>
-    <p>Prix total: <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
-    <div class="text-center">
-        <button id="pay" class="btn-samba">Payer ma location</button>
+    <p>Prix total: <strong><%= @order.amount %>€</strong></p>
+    <div class="text-center my-4">
+        <p id="pay" class="btn-samba">Payer ma location</p>
     </div>
+    <div id="space"></div>
     <%# # Commented for the lecture, remove comments. %>
     <script src="https://js.stripe.com/v3/"></script>
     <script>

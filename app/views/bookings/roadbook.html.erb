@@ -12,7 +12,7 @@
     </div>
 
     <p class="van-card-name"><%= @van.name %></p>
-    <p class="van-card-passengers">Capacité: <%= @van.passengers %> personnes</p>
+    <p class="van-card-passengers" id="passengers-roadbook">Capacité: <%= @van.passengers %> personnes</p>
     <p class="van-card-date">Du <%= @start %> au <%= @end %> </p>
     <p class="van-card-description"><%= @van.description %></p>
 </div>
@@ -29,7 +29,7 @@
 
 
 <%# affichage des emplacements %>
-<h2 class="subtitle-green">Mes emplacements</h2>
+<h2 class="subtitle-green mt-2">Mes emplacements</h2>
   <% @selected_places.each do |selection| %>
     <div class="card-place">
       <%= cl_image_tag selection.place.photo.key, class: "card-place-img" %>
