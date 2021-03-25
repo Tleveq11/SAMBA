@@ -1,44 +1,43 @@
-<div class="ct-16">
 
-    <h2 class="subtitle-green">Mes roadbooks</h2>
 
-    <% @bookings.each do |booking| %>
-        <div class="roadbook">
-            <div class="card-van">
-                <div>
-                    <%= cl_image_tag booking.van.photo.key, class: "card-van-img" %>
-                </div>
-                <div class="van-card-price">
-                    <p><strong><%= booking.total_price %>€</strong> pour <%= (booking.end_date - booking.start_date).to_i %> nuits</p>
-                </div>
+<h2 class="subtitle-green">Mes roadbooks</h2>
 
-                <p class="van-card-name"><%= booking.van.name %></p>
-                <p class="van-card-passengers">Capacité: <%= booking.van.passengers %> personnes</p>
-                <p class="van-card-date">Du <%= Date.parse(booking.start_date.to_s).strftime("%d/%m/%Y") %> au <%= Date.parse(booking.end_date.to_s).strftime("%d/%m/%Y") %> </p>
+<% @bookings.each do |booking| %>
+    <div class="roadbook">
+        <div class="card-van">
+            <div>
+                <%= cl_image_tag booking.van.photo.key, class: "card-van-img" %>
             </div>
-            <% booking.booking_places.each do |bookingplace| %>
-                <div class="d-flex">
-                    <div class="roadbook-small">
-                        <%= cl_image_tag bookingplace.place.photo.key %>
-                    </div>
-                    <div class="roadbook-small">
-                    <p><strong><%= bookingplace.place.name %></strong></p>
-                    <p><%= bookingplace.place.address %></p>
-                    </div>
-                </div>
-            <% end %>
-            <% booking.booking_activities.each do |bookingactivity| %>
-                <div class="d-flex">
-                    <div class="roadbook-small">
-                        <%= cl_image_tag bookingactivity.activity.photo.key %>
-                    </div>
-                    <div class="roadbook-small">
-                    <p><strong><%= bookingactivity.activity.name %></strong></p>
-                    <p><%= bookingactivity.activity.address %></p>
-                    </div>
-                </div>
-            <% end %>
-        </div>
-    <% end %>
+            <div class="van-card-price">
+                <p><strong><%= booking.total_price %>€</strong> pour <%= (booking.end_date - booking.start_date).to_i %> nuits</p>
+            </div>
 
-</div>
+            <p class="van-card-name"><%= booking.van.name %></p>
+            <p class="van-card-passengers">Capacité: <%= booking.van.passengers %> personnes</p>
+            <p class="van-card-date">Du <%= Date.parse(booking.start_date.to_s).strftime("%d/%m/%Y") %> au <%= Date.parse(booking.end_date.to_s).strftime("%d/%m/%Y") %> </p>
+        </div>
+        <% booking.booking_places.each do |bookingplace| %>
+            <div class="d-flex">
+                <div class="roadbook-small">
+                    <%= cl_image_tag bookingplace.place.photo.key %>
+                </div>
+                <div class="roadbook-small">
+                <p><strong><%= bookingplace.place.name %></strong></p>
+                <p><%= bookingplace.place.address %></p>
+                </div>
+            </div>
+        <% end %>
+        <% booking.booking_activities.each do |bookingactivity| %>
+            <div class="d-flex">
+                <div class="roadbook-small">
+                    <%= cl_image_tag bookingactivity.activity.photo.key %>
+                </div>
+                <div class="roadbook-small">
+                <p><strong><%= bookingactivity.activity.name %></strong></p>
+                <p><%= bookingactivity.activity.address %></p>
+                </div>
+            </div>
+        <% end %>
+    </div>
+<% end %>
+
