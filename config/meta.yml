@@ -1,4 +1,4 @@
 meta_product_name: "Samba"
 meta_title: "Samba - Ici commence l'aventure"
 meta_description: "Samba est votre meilleur compagnon pour l'organisation de vos séjours en van. Bookez, créez et voyagez l'esprit libre proche de chez vous ou à l'autre bout du monde. "
-meta_image: "cover.png" # should exist in `app/assets/images/`
+meta_image: "samba.jpg" # should exist in `app/assets/images/`
