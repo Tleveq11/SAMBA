@@ -1,76 +1,80 @@
-<h2 class="subtitle-green">Mon véhicule</h2>
+<div class="ct-16">
 
-<%# affichage du van sélectionné %>
+  <h2 class="subtitle-green">Mon véhicule</h2>
 
-<div class="card-van">
-    <div>
-        <%= cl_image_tag @van.photo.key, class: "card-van-img" %>
-    </div>
+  <%# affichage du van sélectionné %>
 
-    <div class="van-card-price">
-        <p><strong><%= @van.price_per_night * @nights.to_i %>€</strong> pour <%= @nights %> nuits</p>
-    </div>
+  <div class="card-van">
+      <div>
+          <%= cl_image_tag @van.photo.key, class: "card-van-img" %>
+      </div>
 
-    <p class="van-card-name"><%= @van.name %></p>
-    <p class="van-card-passengers">Capacité: <%= @van.passengers %> personnes</p>
-    <p class="van-card-description"><%= @van.description %></p>
-</div>
+      <div class="van-card-price">
+          <p><strong><%= @van.price_per_night * @nights.to_i %>€</strong> pour <%= @nights %> nuits</p>
+      </div>
 
-<%# Affichage de la carte %>
+      <p class="van-card-name"><%= @van.name %></p>
+      <p class="van-card-passengers">Capacité: <%= @van.passengers %> personnes</p>
+      <p class="van-card-description"><%= @van.description %></p>
+  </div>
 
-<h2 class="subtitle-green">Mes emplacements</h2>
+  <%# Affichage de la carte %>
 
-<div id="map"
-    style="width: 100%; height: 400px;"
-    data-places="<%= @markers.to_json %>"
-    data-activities="[]"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-    data-start="<%= @start_point.to_json %>">
-</div>
+  <h2 class="subtitle-green">Mes emplacements</h2>
 
-<%# Affichage de la liste (vide au départ) de sélection %>
-<h2 class="subtitle-green mt-3">Ma sélection</h2>
-<ul id="p-selection">
-  <% @nights.to_i.times do %>
-    <li class="first">Nuit <%= @counter += 1 %></li>
-    <li class="empty"></li>
-  <% end %>
-</ul>
-<%# Affichage des suggestions d'emplacements %>
-    <br>
-<h2 class="subtitle-green mt-n3">Mes suggestions</h2>
-  <ul id="p-suggestions">
-    <% @places_selection.each do |place| %>
-      <li class="swap" data-place-id="<%=place.id%>">
-        <div class="card-place">
-          <%= cl_image_tag place.photo.key, class: "card-place-img" %>
-          <div class="card-place-infos">
-            <p class="place-card-name"><%= place.name %></p>
-            <p class="place-card-address"><%= place.address %></p>
-            <p class="place-card-description"><%= place.description.first(80) %>...</p>
-            <div class="d-flex justify-content-end w-100">
-              <%= image_tag "eye-samba.svg", class:"modal-button", data:{toggle: "modal", target:"#place-#{place.id}"} %>
-            </div>
-              <div class="modal fade" id="place-<%= place.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                      <%= cl_image_tag place.photo.key, class: "modal-img" %>
-                  <div class="modal-content">
-                      <p class="modal-title" ><%= place.name %></p>
-                      <p class="place-card-address"><%= place.address %></p>
-                      <p class="place-card-description"><%= place.description %></p>
-                  </div>
-                </div>
-              </div>
-          </div>
-        </div>
-      </li>
+  <div id="map"
+      style="width: 100%; height: 400px;"
+      data-places="<%= @markers.to_json %>"
+      data-activities="[]"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      data-start="<%= @start_point.to_json %>">
+  </div>
+
+  <%# Affichage de la liste (vide au départ) de sélection %>
+  <h2 class="subtitle-green mt-3">Ma sélection</h2>
+  <ul id="p-selection">
+    <% @nights.to_i.times do %>
+      <li class="first">Nuit <%= @counter += 1 %></li>
+      <li class="empty"></li>
     <% end %>
   </ul>
-</div>
+  <%# Affichage des suggestions d'emplacements %>
+      <br>
+  <h2 class="subtitle-green mt-n3">Mes suggestions</h2>
+    <ul id="p-suggestions">
+      <% @places_selection.each do |place| %>
+        <li class="swap" data-place-id="<%=place.id%>">
+          <div class="card-place">
+            <%= cl_image_tag place.photo.key, class: "card-place-img" %>
+            <div class="card-place-infos">
+              <p class="place-card-name"><%= place.name %></p>
+              <p class="place-card-address"><%= place.address %></p>
+              <p class="place-card-description"><%= place.description.first(80) %>...</p>
+              <div class="d-flex justify-content-end w-100">
+                <%= image_tag "eye-samba.svg", class:"modal-button", data:{toggle: "modal", target:"#place-#{place.id}"} %>
+              </div>
+                <div class="modal fade" id="place-<%= place.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                        <%= cl_image_tag place.photo.key, class: "modal-img" %>
+                    <div class="modal-content">
+                        <p class="modal-title" ><%= place.name %></p>
+                        <p class="place-card-address"><%= place.address %></p>
+                        <p class="place-card-description"><%= place.description %></p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 
-<%# Bouton submit %>
-<div class="text-center">
-  <button class="btn-samba mb-4" id="places-select">Valider mes emplacements</button>
+  <%# Bouton submit %>
+  <div class="text-center">
+    <button class="btn-samba mb-4" id="places-select">Valider mes emplacements</button>
+  </div>
+
 </div>
 
 
