@@ -1,94 +1,94 @@
-<div class="ct-16">
-
-  <h2 class="subtitle-green">Mon véhicule</h2>
-
-  <%# affichage du van sélectionné %>
-
-  <div class="card-van">
-      <div>
-          <%= cl_image_tag @van.photo.key, class: "card-van-img" %>
-      </div>
-
-      <div class="van-card-price">
-          <p><strong><%= @total_price %>€</strong> pour <%= @nights %> nuits</p>
-      </div>
-
-      <p class="van-card-name"><%= @van.name %></p>
-      <p class="van-card-passengers" id="passengers-roadbook">Capacité: <%= @van.passengers %> personnes</p>
-      <p class="van-card-date">Du <%= @start %> au <%= @end %> </p>
-      <p class="van-card-description"><%= @van.description %></p>
-  </div>
-
-  <%# affichage de la map %>
-  <div id="map"
-    style="width: 100%; height: 500px;"
-    data-places="<%= @places_markers.to_json %>"
-    data-activities="<%= @activities_markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-    data-start="<%= @start_point.to_json %>"
-    data-trace="true">
-  </div>
 
 
-  <%# affichage des emplacements %>
-  <h2 class="subtitle-green mt-2">Mes emplacements</h2>
-    <% @selected_places.each do |selection| %>
-      <div class="card-place">
-        <%= cl_image_tag selection.place.photo.key, class: "card-place-img" %>
-          <div class="card-place-infos">
-            <p class="place-card-name"><%= selection.place.name %></p>
-            <p class="place-card-address"><%= selection.place.address %></p>
-            <p class="place-card-description"><%= selection.place.description.first(80) %>...</p>
-              <div class="d-flex justify-content-end w-100">
-                <%= image_tag "eye-samba.svg", class:"modal-button", data:{toggle: "modal", target:"#place-#{selection.place.id}"} %>
-              </div>
-                <div class="modal fade" id="place-<%= selection.place.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                        <%= cl_image_tag selection.place.photo.key, class: "modal-img" %>
-                    <div class="modal-content">
-                      <p class="modal-title" ><%= selection.place.name %></p>
-                      <p class="place-card-address"><%= selection.place.address %></p>
-                      <p class="place-card-description"><%= selection.place.description %></p>
-                    </div>
+<h2 class="subtitle-green">Mon véhicule</h2>
+
+<%# affichage du van sélectionné %>
+
+<div class="card-van">
+    <div>
+        <%= cl_image_tag @van.photo.key, class: "card-van-img" %>
+    </div>
+
+    <div class="van-card-price">
+        <p><strong><%= @total_price %>€</strong> pour <%= @nights %> nuits</p>
+    </div>
+
+    <p class="van-card-name"><%= @van.name %></p>
+    <p class="van-card-passengers" id="passengers-roadbook">Capacité: <%= @van.passengers %> personnes</p>
+    <p class="van-card-date">Du <%= @start %> au <%= @end %> </p>
+    <p class="van-card-description"><%= @van.description %></p>
+</div>
+
+<%# affichage de la map %>
+<div id="map"
+  style="width: 100%; height: 500px;"
+  data-places="<%= @places_markers.to_json %>"
+  data-activities="<%= @activities_markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  data-start="<%= @start_point.to_json %>"
+  data-trace="true">
+</div>
+
+
+<%# affichage des emplacements %>
+<h2 class="subtitle-green mt-2">Mes emplacements</h2>
+  <% @selected_places.each do |selection| %>
+    <div class="card-place">
+      <%= cl_image_tag selection.place.photo.key, class: "card-place-img" %>
+        <div class="card-place-infos">
+          <p class="place-card-name"><%= selection.place.name %></p>
+          <p class="place-card-address"><%= selection.place.address %></p>
+          <p class="place-card-description"><%= selection.place.description.first(80) %>...</p>
+            <div class="d-flex justify-content-end w-100">
+              <%= image_tag "eye-samba.svg", class:"modal-button", data:{toggle: "modal", target:"#place-#{selection.place.id}"} %>
+            </div>
+              <div class="modal fade" id="place-<%= selection.place.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                      <%= cl_image_tag selection.place.photo.key, class: "modal-img" %>
+                  <div class="modal-content">
+                    <p class="modal-title" ><%= selection.place.name %></p>
+                    <p class="place-card-address"><%= selection.place.address %></p>
+                    <p class="place-card-description"><%= selection.place.description %></p>
                   </div>
                 </div>
-          </div>
-      </div>
-  <% end %>
-
-  <%# affichage des activites %>
-  <h2 class="subtitle-green">Mes activités</h2>
-    <% @selected_activities.each do |selection| %>
-      <div class="card-activity">
-        <%= cl_image_tag selection.activity.photo.key, class: "card-activity-img" %>
-          <div class="card-activity-infos">
-            <p class="activity-card-name"><%= selection.activity.name %></p>
-            <p class="activity-card-address"><%= selection.activity.address %></p>
-            <p class="activity-card-description"><%= selection.activity.description.first(80) %>...</p>
-              <div class="d-flex justify-content-end w-100">
-                <%= image_tag "eye-samba.svg", class:"modal-button", data:{toggle: "modal", target:"#activity-#{selection.activity.id}"} %>
               </div>
-                <div class="modal fade" id="activity-<%= selection.activity.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                        <%= cl_image_tag selection.activity.photo.key, class: "modal-img" %>
-                        <div class="modal-content">
-                          <p class="modal-title" ><%= selection.activity.name %></p>
-                          <p class="activity-card-address"><%= selection.activity.address %></p>
-                          <p class="activity-card-description"><%= selection.activity.description %></p>
-                        </div>
-                  </div>
+        </div>
+    </div>
+<% end %>
+
+<%# affichage des activites %>
+<h2 class="subtitle-green">Mes activités</h2>
+  <% @selected_activities.each do |selection| %>
+    <div class="card-activity">
+      <%= cl_image_tag selection.activity.photo.key, class: "card-activity-img" %>
+        <div class="card-activity-infos">
+          <p class="activity-card-name"><%= selection.activity.name %></p>
+          <p class="activity-card-address"><%= selection.activity.address %></p>
+          <p class="activity-card-description"><%= selection.activity.description.first(80) %>...</p>
+            <div class="d-flex justify-content-end w-100">
+              <%= image_tag "eye-samba.svg", class:"modal-button", data:{toggle: "modal", target:"#activity-#{selection.activity.id}"} %>
+            </div>
+              <div class="modal fade" id="activity-<%= selection.activity.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                      <%= cl_image_tag selection.activity.photo.key, class: "modal-img" %>
+                      <div class="modal-content">
+                        <p class="modal-title" ><%= selection.activity.name %></p>
+                        <p class="activity-card-address"><%= selection.activity.address %></p>
+                        <p class="activity-card-description"><%= selection.activity.description %></p>
+                      </div>
                 </div>
-          </div>
-      </div>
-    <% end %>
-
-    <%# bouton vers le paiement %>
-
-    <%= form_tag orders_path do %>
-    <%= hidden_field_tag 'booking_id', @booking.id %>
-    <div class="text-center mb-4">
-      <%= submit_tag 'Valider et payer', class: 'btn-samba' %>
+              </div>
+        </div>
     </div>
   <% end %>
 
-</div>
+  <%# bouton vers le paiement %>
+
+  <%= form_tag orders_path do %>
+  <%= hidden_field_tag 'booking_id', @booking.id %>
+  <div class="text-center mb-4">
+    <%= submit_tag 'Valider et payer', class: 'btn-samba' %>
+  </div>
+<% end %>
+
+

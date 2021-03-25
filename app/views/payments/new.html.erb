@@ -1,29 +1,29 @@
-<div class="ct-16">
 
-    <h2 class="subtitle-green">Résumé de votre achat</h2>
-    <%= cl_image_tag @order.booking.van.photo.key, width: '100%', padding: '0' %>
 
-    <p class="van-card-name"> Location du van <%= @order.booking.van.name %></p>
-    <p class="van-card-passengers" id="passengers-roadbook">Capacité: <%= @order.booking.van.passengers %> personnes</p>
-    <p class="van-card-date">Du <%= @start %> au <%= @end %> </p>
-    <p>Prix total: <strong><%= @order.amount %>€</strong></p>
-    <div class="text-center my-4">
-        <p id="pay" class="btn-samba">Payer ma location</p>
-    </div>
-    <div id="space"></div>
+<h2 class="subtitle-green">Résumé de votre achat</h2>
+<%= cl_image_tag @order.booking.van.photo.key, width: '100%', padding: '0' %>
 
+<p class="van-card-name"> Location du van <%= @order.booking.van.name %></p>
+<p class="van-card-passengers" id="passengers-roadbook">Capacité: <%= @order.booking.van.passengers %> personnes</p>
+<p class="van-card-date">Du <%= @start %> au <%= @end %> </p>
+<p>Prix total: <strong><%= @order.amount %>€</strong></p>
+<div class="text-center my-4">
+    <p id="pay" class="btn-samba">Payer ma location</p>
 </div>
+<div id="space"></div>
 
-    <%# # Commented for the lecture, remove comments. %>
-    <script src="https://js.stripe.com/v3/"></script>
-    <script>
-    const paymentButton = document.getElementById('pay');
-    paymentButton.addEventListener('click', () => {
-        const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
-        stripe.redirectToCheckout({
-        sessionId: '<%= @order.checkout_session_id %>'
-        });
+
+
+<%# # Commented for the lecture, remove comments. %>
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+const paymentButton = document.getElementById('pay');
+paymentButton.addEventListener('click', () => {
+    const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+    stripe.redirectToCheckout({
+    sessionId: '<%= @order.checkout_session_id %>'
     });
-    </script>
+});
+</script>
 
 
