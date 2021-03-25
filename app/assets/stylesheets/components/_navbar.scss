@@ -2,7 +2,8 @@
   justify-content: space-between;
   background-color: $white;
   box-shadow: 0 4px 12px -12px rgba(0,0,0,0.6);
-  margin: 0 -20px;
+  padding: 8px 0px;
+  // margin: 0 -20px;
 }
 
 .navbar-brand {
@@ -40,5 +41,6 @@
   z-index: 1;
   position: absolute;
   right: 16px;
-  margin: 0 -20px;
+  padding: 8px 0px;
+  // margin: 0 -20px;
 }
