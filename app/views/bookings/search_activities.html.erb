@@ -1,49 +1,52 @@
-<%# Affichage de la carte %>
-<div id="map"
-  style="width: 100%; height: 500px;"
-  data-places="<%= @markers.to_json %>"
-  data-activities="<%= @activities_markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  data-start= "<%= @start_point.to_json %>"
-  data-trace="true">
-</div>
-<%# Affichage de la liste (vide au départ) de sélection d'activités %>
-<h2 class="subtitle-green mt-3">Mes activités</h2>
-<ul id="a-selection">
-    <li class="empty-activities"></li>
-</ul>
-
-<%# Affichage des suggestions d'activités %>
-<h2 class="subtitle-green">Suggestions</h2>
-  <ul id="a-suggestions">
-    <% @activities_selection.each do |activity| %>
-      <li class="swap" data-activities-id="<%=activity.id%>" >
-        <div class="card-activity">
-          <%= cl_image_tag activity.photo.key, class: "card-activity-img" %>
-          <div class="card-activity-infos">
-            <p class="activity-card-name"><%= activity.name %></p>
-            <p class="activity-card-address"><%= activity.address %></p>
-            <p class="activity-card-description"><%= activity.description.first(80) %>...</p>
-            <div class="d-flex justify-content-end w-100">
-              <%= image_tag "eye-samba.svg", class:"modal-button", data:{toggle: "modal", target:"#activity-#{activity.id}"} %>
-            </div>
-              <div class="modal fade" id="activity-<%= activity.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                      <%= cl_image_tag activity.photo.key, class: "modal-img" %>
-                  <div class="modal-content">
-                      <p class="modal-title" ><%= activity.name %></p>
-                      <p class="activity-card-address"><%= activity.address %></p>
-                      <p class="activity-card-description"><%= activity.description %></p>
-                  </div>
-                </div>
-              </div>
-          </div>
-        </div>
-      </li>
-    <% end %>
+<div class="ct-16">
+  <%# Affichage de la carte %>
+  <div id="map"
+    style="width: 100%; height: 500px;"
+    data-places="<%= @markers.to_json %>"
+    data-activities="<%= @activities_markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    data-start= "<%= @start_point.to_json %>"
+    data-trace="true">
+  </div>
+  <%# Affichage de la liste (vide au départ) de sélection d'activités %>
+  <h2 class="subtitle-green mt-3">Mes activités</h2>
+  <ul id="a-selection">
+      <li class="empty-activities"></li>
   </ul>
 
-<%# Bouton submit %>
-<div class="text-center">
-  <button class="btn-samba mb-4" id="activities-select">Valider mes activités</button>
+  <%# Affichage des suggestions d'activités %>
+  <h2 class="subtitle-green">Suggestions</h2>
+    <ul id="a-suggestions">
+      <% @activities_selection.each do |activity| %>
+        <li class="swap" data-activities-id="<%=activity.id%>" >
+          <div class="card-activity">
+            <%= cl_image_tag activity.photo.key, class: "card-activity-img" %>
+            <div class="card-activity-infos">
+              <p class="activity-card-name"><%= activity.name %></p>
+              <p class="activity-card-address"><%= activity.address %></p>
+              <p class="activity-card-description"><%= activity.description.first(80) %>...</p>
+              <div class="d-flex justify-content-end w-100">
+                <%= image_tag "eye-samba.svg", class:"modal-button", data:{toggle: "modal", target:"#activity-#{activity.id}"} %>
+              </div>
+                <div class="modal fade" id="activity-<%= activity.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                        <%= cl_image_tag activity.photo.key, class: "modal-img" %>
+                    <div class="modal-content">
+                        <p class="modal-title" ><%= activity.name %></p>
+                        <p class="activity-card-address"><%= activity.address %></p>
+                        <p class="activity-card-description"><%= activity.description %></p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+
+  <%# Bouton submit %>
+  <div class="text-center">
+    <button class="btn-samba mb-4" id="activities-select">Valider mes activités</button>
+  </div>
+
 </div>

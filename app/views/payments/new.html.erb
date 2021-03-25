@@ -1,6 +1,7 @@
-<h2 class="subtitle-green">Résumé de votre achat</h2>
-<%= cl_image_tag @order.booking.van.photo.key, width: '100%', padding: '0' %>
+<div class="ct-16">
 
+    <h2 class="subtitle-green">Résumé de votre achat</h2>
+    <%= cl_image_tag @order.booking.van.photo.key, width: '100%', padding: '0' %>
 
     <p class="van-card-name"> Location du van <%= @order.booking.van.name %></p>
     <p class="van-card-passengers" id="passengers-roadbook">Capacité: <%= @order.booking.van.passengers %> personnes</p>
@@ -10,6 +11,9 @@
         <p id="pay" class="btn-samba">Payer ma location</p>
     </div>
     <div id="space"></div>
+
+</div>
+
     <%# # Commented for the lecture, remove comments. %>
     <script src="https://js.stripe.com/v3/"></script>
     <script>
