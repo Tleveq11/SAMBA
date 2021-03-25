@@ -1,12 +1,12 @@
 
 
-<h2 class="subtitle-green text-center mt-5">Sélectionnez 3 thèmes</h2>
+<h2 class="subtitle-green text-center mt-4">Sélectionnez 3 thèmes</h2>
 
 
  <%= form_with(url: "/results_activities", method: "get", local: true) do |f| %>
 
 
-        <div class="radio-group mt-5" id="first-radio">
+        <div class="radio-group mt-4" id="first-radio">
             <div class="radio-option">
                 <%= f.check_box :category_randonnée, class: "radio" %>
                 <%= f.label :category_randonnée, cl_image_tag('https://res.cloudinary.com/df0stqosw/image/upload/v1616257443/Samba/Activities/randonnee.png_mdchoh.png') %>
@@ -58,7 +58,7 @@
             </div>
         </div>
 
-        <div class="text-center mt-5">
+        <div class="text-center mt-4">
             <%= f.submit "Voir les activités", class: "btn-samba" %>
         </div>
 

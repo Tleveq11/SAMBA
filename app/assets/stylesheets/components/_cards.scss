@@ -19,8 +19,13 @@
 
 .van-card-passengers {
   font-size: 14px;
-  margin: 0;
+  margin-bottom: 10px;
 }
+
+#passengers-roadbook {
+  margin-bottom: 0;
+}
+
 .van-card-date {
   font-size: 14px;
 }
@@ -113,6 +118,8 @@ li.first + li.empty {
 // modal
 .modal-content {
   padding: 15px;
+  border: none;
+  border-radius: 0px;
 }
 
 .modal-img{
@@ -226,11 +233,15 @@ li.first + li.empty {
   flex-direction: column;
   justify-content: center;
   margin: 5px 0;
-  padding-left: 5px;
 }
 
 .roadbook {
   border: 1px solid lightgray;
   margin: 10px 0;
+  padding: 5px;
+}
+
+#space {
+  height: 100px;
 }
 
